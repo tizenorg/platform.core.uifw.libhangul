@@ -4,9 +4,24 @@ Priority: extra
 Maintainer: Wei Ye <wei.ye@samsung.com>
 Build-Depends: debhelper (>= 5), autotools-dev, pkg-config, libisf-dev
 Standards-Version: 3.7.2
-
-Package: libhangul
+ 
+Package: libhangul-bin
+Section: libs
 Architecture: any
-Depends:
-Description: Hangul ISE for ISF
- <this module is IM engine of SCIM and built for ISF (ISF is input service framework for supporing mobile input and is extended from SCIM 1.4.7.>
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: libhangul
+Version: 2.2
+
+Package: libhangul-dev
+Section: libdevel
+Architecture: any
+Depends: ${misc:Depends}
+Description: libhangul header files and static libraries
+ This package contains libhangul header files and static libraries
+
+Package: libhangul-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: libhangul (unstripped)
+ This package contains libhangul unstripped files.
