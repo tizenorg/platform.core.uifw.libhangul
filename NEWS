@@ -1,0 +1,29 @@
+0.0.7
+ * update hanja.txt
+   - added more word data
+   - hanja items are ordered by frequency from Kim Song-yil<masoris@gmail.com>
+   - all CJK compatibility hanja was changed to CJK unified hanja
+ * add new function to convert compatibility hanja to unified hanja and unified
+   to compatibility.
+ * update python module
+
+0.0.6
+ * update library version
+
+0.0.5
+ * changed filter api
+ * add more hanja word database
+
+0.0.4
+ * added HnagulKeyboard, HangulCombination feature
+ * update test code
+ * process english character also in hangul mode
+
+0.0.3
+ * added Hanja related features
+
+0.0.2
+ * added filter feature
+
+0.0.1
+ * first relese
