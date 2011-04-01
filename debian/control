@@ -1,10 +1,10 @@
 Source: libhangul
 Section: devel
 Priority: extra
-Maintainer: Wei Ye <wei.ye@samsung.com>
+Maintainer: Wei Ye <wei.ye@samsung.com>, Jihoon Kim <jihoon48.kim>
 Build-Depends: debhelper (>= 5), autotools-dev, pkg-config, libisf-dev
 Standards-Version: 3.7.2
- 
+
 Package: libhangul-bin
 Section: libs
 Architecture: any
@@ -15,7 +15,7 @@ Version: 2.2
 Package: libhangul-dev
 Section: libdevel
 Architecture: any
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, libhangul-bin
 Description: libhangul header files and static libraries
  This package contains libhangul header files and static libraries
 
