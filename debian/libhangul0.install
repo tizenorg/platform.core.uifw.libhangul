@@ -1,2 +1,1 @@
-usr/share/*
-usr/lib/*.so*
+debian/tmp/usr/lib/lib*.so.* usr/lib/
