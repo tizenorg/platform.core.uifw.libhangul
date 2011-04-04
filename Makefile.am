@@ -1,7 +1,12 @@
-SUBDIRS = hangul data bindings test
+SUBDIRS = hangul data test
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libhangul.pc
+
+EXTRA_DIST = \
+    doc/Makefile \
+    doc/Doxyfile.in \
+    doc/mainpage.dox
 
 log:
 	unset LC_ALL; \

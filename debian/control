@@ -1,26 +1,37 @@
 Source: libhangul
-Section: devel
-Priority: extra
+Section: libs
+Priority: optional
 Maintainer: Wei Ye <wei.ye@samsung.com>, Jihoon Kim <jihoon48.kim>
-Build-Depends: debhelper (>= 5), autotools-dev, pkg-config, libisf-dev
-Standards-Version: 3.7.2
+Standards-Version: 3.8.3
+Build-Depends: cdbs (>= 0.4.48), autotools-dev, debhelper (>= 5)
 
 Package: libhangul0
 Section: libs
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: libhangul0-data (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}
 Description: Hangul keyboard input library - runtime
  This library implements Hangul keyboard input with various types of
  Korean keyboards.  It is intended to be a base library of Korean
  input methods on multiple platforms.
  .
  This package contains the shared library and the runtime data.
-Version: 2.2
+
+Package: libhangul0-data
+Section: libs
+Architecture: all
+Depends: ${misc:Depends}
+Description: Hangul keyboard input library - data
+ This library implements Hangul keyboard input with various types of
+ Korean keyboards.  It is intended to be a base library of Korean
+ input methods on multiple platforms.
+ .
+ This package contains the architecture independent data.
 
 Package: libhangul0-dbg
 Section: debug
+Priority: extra
 Architecture: any
-Depends: libhangul0, ${shlibs:Depends}, ${misc:Depends}
+Depends: libhangul0 (= ${binary:Version}), ${misc:Depends}
 Description: Hangul keyboard input library - debugging symbols
  This library implements Hangul keyboard input with various types of
  Korean keyboards.  It is intended to be a base library of Korean
@@ -32,7 +43,7 @@ Description: Hangul keyboard input library - debugging symbols
 Package: libhangul-dev
 Section: libdevel
 Architecture: any
-Depends: libhangul0, ${misc:Depends}
+Depends: libhangul0 (= ${binary:Version}), ${misc:Depends}
 Description: Hangul keyboard input library - development files
  This library implements Hangul keyboard input with various types of
  Korean keyboards.  It is intended to be a base library of Korean
