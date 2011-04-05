@@ -2,6 +2,10 @@ Source: libhangul
 Section: libs
 Priority: optional
 Maintainer: Wei Ye <wei.ye@samsung.com>, Jihoon Kim <jihoon48.kim>
+Original-Maintainer: Changwoo Ryu <cwryu@debian.org>
+Homepage: http://kldp.net/projects/hangul
+Vcs-Browser: http://git.debian.org/?p=l10n-korean/libhangul.git
+Vcs-Git: git://git.debian.org/git/l10n-korean/libhangul.git
 Standards-Version: 3.8.3
 Build-Depends: cdbs (>= 0.4.48), autotools-dev, debhelper (>= 5)
 
