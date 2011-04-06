@@ -1,3 +1,11 @@
+libhangul (2.1.10-2) unstable; urgency=low
+
+  * upgrade to libhangul 0.0.10
+  * Git: 165.213.180.234:slp/pkgs/l/libhangul
+  * Tag: libhangul_2.1.10-2
+
+ -- Jihoon Kim <jihoon48.kim@samsung.com>  Wed, 06 Apr 2011 14:44:16 +0900
+
 libhangul (2.1.10-1) unstable; urgency=low
 
   * upgrade to libhangul 0.0.10
