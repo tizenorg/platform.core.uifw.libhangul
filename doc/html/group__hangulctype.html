@@ -1,0 +1,576 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>libhangul: 한글 글자 조작</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- 다음에 의해 생성됨 :  Doxygen 1.5.3-20071008 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>메인&nbsp;페이지</span></a></li>
+    <li><a href="modules.html"><span>모듈</span></a></li>
+    <li><a href="files.html"><span>파일들</span></a></li>
+    <li><a href="dirs.html"><span>디렉토리</span></a></li>
+    <li><a href="pages.html"><span>관련된&nbsp;페이지</span></a></li>
+  </ul>
+</div>
+<h1>한글 글자 조작</h1><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>타입정의</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef uint32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">UCS4 코드 단위의 글자 코드 값  <a href="#g2c1a56543786ad0dcce173493019448c"></a><br></td></tr>
+<tr><td colspan="2"><br><h2>함수</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#ge7e530bdd27641359932f0ec2f35baf7">hangul_is_choseong</a> (<a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> c)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">초성인지 확인하는 함수  <a href="#ge7e530bdd27641359932f0ec2f35baf7"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#g13911613692587dbee7ad7a8e55d05de">hangul_is_jungseong</a> (<a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> c)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">중성인지 확인하는 함수  <a href="#g13911613692587dbee7ad7a8e55d05de"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#gf27e727a59a10d93bce3000ba67cfee5">hangul_is_jongseong</a> (<a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> c)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">종성인지 확인하는 함수  <a href="#gf27e727a59a10d93bce3000ba67cfee5"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="g2000b538de4cb62a340a7e43c915d47c"></a><!-- doxytag: member="hangulctype::hangul_is_choseong_conjoinable" ref="g2000b538de4cb62a340a7e43c915d47c" args="(ucschar c)" -->
+bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#g2000b538de4cb62a340a7e43c915d47c">hangul_is_choseong_conjoinable</a> (<a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> c)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">초성이고 조합 가능한지 확인 <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="g1f21b5668d639a6f8239c0768eba26bb"></a><!-- doxytag: member="hangulctype::hangul_is_jungseong_conjoinable" ref="g1f21b5668d639a6f8239c0768eba26bb" args="(ucschar c)" -->
+bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#g1f21b5668d639a6f8239c0768eba26bb">hangul_is_jungseong_conjoinable</a> (<a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> c)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">중성이고 조합 가능한지 확인 <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="g27bf78bb7bfaa411edefdbc352ae99ba"></a><!-- doxytag: member="hangulctype::hangul_is_jongseong_conjoinable" ref="g27bf78bb7bfaa411edefdbc352ae99ba" args="(ucschar c)" -->
+bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#g27bf78bb7bfaa411edefdbc352ae99ba">hangul_is_jongseong_conjoinable</a> (<a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> c)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">종성이고 조합 가능한지 확인 <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#gbd6ca2bb0cd27983821116adf56b4691">hangul_is_syllable</a> (<a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> c)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">한글 음절 인지 확  <a href="#gbd6ca2bb0cd27983821116adf56b4691"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#g88f2449a0cbd08eaa7ad303fe31863ae">hangul_is_jamo</a> (<a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> c)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">자모 인지 확인  <a href="#g88f2449a0cbd08eaa7ad303fe31863ae"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#g45f5b595d03fd57b14605d53daae3e6e">hangul_is_cjamo</a> (<a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> c)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">호환 자모인지 확인  <a href="#g45f5b595d03fd57b14605d53daae3e6e"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#g3098332f541aafb8112ea5f5a0b7d9d7">hangul_jamo_to_cjamo</a> (<a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> c)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">자모 코드를 대응하는 호환 자모로 변환  <a href="#g3098332f541aafb8112ea5f5a0b7d9d7"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#g7f79e6e65454c3b074ac0483bb11b256">hangul_jamo_to_syllable</a> (<a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> choseong, <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> jungseong, <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> jongseong)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">자모 코드를 조합하여 한글 음절로 변환  <a href="#g7f79e6e65454c3b074ac0483bb11b256"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#gb3581b43f1b9903d01aedcf1da057b6b">hangul_syllable_to_jamo</a> (<a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> syllable, <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *choseong, <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *jungseong, <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *jongseong)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">음절을 자모로 분해  <a href="#gb3581b43f1b9903d01aedcf1da057b6b"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#gf6e252781050757fb56131a450c459b3">hangul_syllable_len</a> (const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *str, int max_len)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">한 음절에 해당하는 코드의 갯수를 구하는 함수  <a href="#gf6e252781050757fb56131a450c459b3"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#g713c0515d849c266f2140736d7f93061">hangul_syllable_iterator_prev</a> (const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *iter, const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *begin)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><em>iter를</em> 기준으로 이전 음절의 첫자모 글자에 대한 포인터를 구하는 함수  <a href="#g713c0515d849c266f2140736d7f93061"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#g9eacc11b58f4c8d3d30fbdf7bea1ca66">hangul_syllable_iterator_next</a> (const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *iter, const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *end)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><em>iter를</em> 기준으로 다음 음절의 첫자모 글자에 대한 포인터를 구하는 함수  <a href="#g9eacc11b58f4c8d3d30fbdf7bea1ca66"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulctype.html#gacc8ef9ce4b4f80385a9bb8add2e3f4c">hangul_jamos_to_syllables</a> (<a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *dest, int destlen, const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *src, int srclen)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">자모 스트링을 음절 스트링으로 변환  <a href="#gacc8ef9ce4b4f80385a9bb8add2e3f4c"></a><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>상세한 설명</h2>
+<h2><a class="anchor" name="hangulctype">
+한글 글자 조작</a></h2>
+libhangul은 한글 각 글자를 구분하고 조작하는데 사용할 수 있는 몇가지 함수를 제공한다. libhangul의 글자 구분 함수의 인터페이스에서 글자의 기본 단위는 UCS4 코드값이다. <hr><h2>타입정의 문서화</h2>
+<a class="anchor" name="g2c1a56543786ad0dcce173493019448c"></a><!-- doxytag: member="hangul.h::ucschar" ref="g2c1a56543786ad0dcce173493019448c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+UCS4 코드 단위의 글자 코드 값 
+<p>
+UCS4 코드 값을 저장한다. libhangul에서 사용하는 문자열의 기본단위이다. preedit 문자열과 commit 문자열 모두 ucschar 포인터 형으로 전달된다. 이 스트링은 C 스트링과 유사하게 0으로 끝난다. 유니코드 값이 한글의 어떤 범주에 속하는지 확인하는 함수도 모두 ucschar 형을 사용한다. 
+</div>
+</div><p>
+<hr><h2>함수 문서화</h2>
+<a class="anchor" name="ge7e530bdd27641359932f0ec2f35baf7"></a><!-- doxytag: member="hangulctype.c::hangul_is_choseong" ref="ge7e530bdd27641359932f0ec2f35baf7" args="(ucschar c)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hangul_is_choseong           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>&nbsp;</td>
+          <td class="paramname"> <em>c</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+초성인지 확인하는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>c</em>&nbsp;</td><td>UCS4 코드 값 </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd><em>c</em> 가 초성에 해당하면 true를 리턴함, 아니면 false</dd></dl>
+<em>c</em> 로 주어진 UCS4 코드가 초성인지 확인한다. Unicode 5.2 지원 
+</div>
+</div><p>
+<a class="anchor" name="g45f5b595d03fd57b14605d53daae3e6e"></a><!-- doxytag: member="hangulctype.c::hangul_is_cjamo" ref="g45f5b595d03fd57b14605d53daae3e6e" args="(ucschar c)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hangul_is_cjamo           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>&nbsp;</td>
+          <td class="paramname"> <em>c</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+호환 자모인지 확인 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>c</em>&nbsp;</td><td>UCS4 코드 값 </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd><em>c가</em> 호환자모이면 true, 그 외에는 false</dd></dl>
+이 함수는 <em>c로</em> 주어진 UCS4 코드가 호환 자모인지 확인한다. 
+</div>
+</div><p>
+<a class="anchor" name="g88f2449a0cbd08eaa7ad303fe31863ae"></a><!-- doxytag: member="hangulctype.c::hangul_is_jamo" ref="g88f2449a0cbd08eaa7ad303fe31863ae" args="(ucschar c)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hangul_is_jamo           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>&nbsp;</td>
+          <td class="paramname"> <em>c</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+자모 인지 확인 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>c</em>&nbsp;</td><td>UCS4 코드 값 </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd><em>c</em> 가 자모 코드이면 true를 리턴, 그외에는 false</dd></dl>
+<em>c</em> 로 주어진 UCS4 코드가 자모 코드인지 확인한다. Unicode 5.2 지원 
+</div>
+</div><p>
+<a class="anchor" name="gf27e727a59a10d93bce3000ba67cfee5"></a><!-- doxytag: member="hangulctype.c::hangul_is_jongseong" ref="gf27e727a59a10d93bce3000ba67cfee5" args="(ucschar c)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hangul_is_jongseong           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>&nbsp;</td>
+          <td class="paramname"> <em>c</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+종성인지 확인하는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>c</em>&nbsp;</td><td>UCS4 코드 값 </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd><em>c</em> 가 종성에 해당하면 true를 리턴함, 아니면 false</dd></dl>
+<em>c</em> 로 주어진 UCS4 코드가 종성인지 확인한다. Unicode 5.2 지원 
+</div>
+</div><p>
+<a class="anchor" name="g13911613692587dbee7ad7a8e55d05de"></a><!-- doxytag: member="hangulctype.c::hangul_is_jungseong" ref="g13911613692587dbee7ad7a8e55d05de" args="(ucschar c)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hangul_is_jungseong           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>&nbsp;</td>
+          <td class="paramname"> <em>c</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+중성인지 확인하는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>c</em>&nbsp;</td><td>UCS4 코드 값 </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd><em>c</em> 가 중성에 해당하면 true를 리턴함, 아니면 false</dd></dl>
+<em>c</em> 로 주어진 UCS4 코드가 중성인지 확인한다. Unicode 5.2 지원 
+</div>
+</div><p>
+<a class="anchor" name="gbd6ca2bb0cd27983821116adf56b4691"></a><!-- doxytag: member="hangulctype.c::hangul_is_syllable" ref="gbd6ca2bb0cd27983821116adf56b4691" args="(ucschar c)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hangul_is_syllable           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>&nbsp;</td>
+          <td class="paramname"> <em>c</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+한글 음절 인지 확 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>c</em>&nbsp;</td><td>UCS4 코드 값 </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd><em>c가</em> 한글 음절 코드이면 true, 그 외에는 false</dd></dl>
+이 함수는 <em>c로</em> 주어진 UCS4 코드가 현대 한글 음절에 해당하는지 확인한다. 
+</div>
+</div><p>
+<a class="anchor" name="g3098332f541aafb8112ea5f5a0b7d9d7"></a><!-- doxytag: member="hangulctype.c::hangul_jamo_to_cjamo" ref="g3098332f541aafb8112ea5f5a0b7d9d7" args="(ucschar c)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> hangul_jamo_to_cjamo           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>&nbsp;</td>
+          <td class="paramname"> <em>c</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+자모 코드를 대응하는 호환 자모로 변환 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>c</em>&nbsp;</td><td>변환할 UCS4 코드 값 </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd><em>c</em> 에 대응되는 호환 자모 값, or c</dd></dl>
+이 함수는 <em>c</em> 로 주어진 자모 코드와 같은 형태를 가진 호환 자모 값을 리턴한다. 자모와 같은 형태를 가진 호환 자모가 없는 경우에는 <em>c</em> 의 값을 그대로 리턴한다. 
+</div>
+</div><p>
+<a class="anchor" name="g7f79e6e65454c3b074ac0483bb11b256"></a><!-- doxytag: member="hangulctype.c::hangul_jamo_to_syllable" ref="g7f79e6e65454c3b074ac0483bb11b256" args="(ucschar choseong, ucschar jungseong, ucschar jongseong)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> hangul_jamo_to_syllable           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>&nbsp;</td>
+          <td class="paramname"> <em>choseong</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>&nbsp;</td>
+          <td class="paramname"> <em>jungseong</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>&nbsp;</td>
+          <td class="paramname"> <em>jongseong</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+자모 코드를 조합하여 한글 음절로 변환 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>choseong</em>&nbsp;</td><td>초성이 될 UCS4 코드 값 </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>jungseong</em>&nbsp;</td><td>중성이 될 UCS4 코드 값 </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>jongseong</em>&nbsp;</td><td>종성이 될 UCS4 코드 값 </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd><em>choseong</em> <em>jungseong</em> <em>jongseong을</em> 조합한 현대 한글 음절 코드, 또는 0</dd></dl>
+이 함수는 <em>choseong</em> <em>jungseong</em> <em>jongseong으로</em> 주어진 코드 값을 각각 초성, 중성, 종성으로 하는 현대 한글 음절 코드를 구한다. <em>choseong</em> <em>jungseong</em> <em>jongseong</em> 이 조합 가능한 코드가 아니라면 0을 리턴한다. 종성이 없는 글자를 만들기 위해서는 jongseong에 0을 주면 된다. 
+</div>
+</div><p>
+<a class="anchor" name="gacc8ef9ce4b4f80385a9bb8add2e3f4c"></a><!-- doxytag: member="hangulctype.c::hangul_jamos_to_syllables" ref="gacc8ef9ce4b4f80385a9bb8add2e3f4c" args="(ucschar *dest, int destlen, const ucschar *src, int srclen)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hangul_jamos_to_syllables           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td>
+          <td class="paramname"> <em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>destlen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td>
+          <td class="paramname"> <em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>srclen</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+자모 스트링을 음절 스트링으로 변환 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>dest</em>&nbsp;</td><td>음절형으로 변환된 결과가 저장될 버퍼 </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>destlen</em>&nbsp;</td><td>결과를 저장할 버퍼의 길이(ucschar 코드 단위) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>src</em>&nbsp;</td><td>변환할 자모 스트링 </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>srclen</em>&nbsp;</td><td>변환할 자모 스트링의 길이(ucschar 코드 단위) </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd><em>destlen</em> 에 저장한 코드의 갯수</dd></dl>
+이 함수는 L+V+T*M? 패턴에 따라 자모 스트링 변환을 시도한다. 한 음절을 판단하는 기준은 <a class="el" href="group__hangulctype.html#gf6e252781050757fb56131a450c459b3">hangul_syllable_len</a> 을 참조한다. 만일 <em>src</em> 가 적절한 음절형태로 변환이 불가능한 경우에는 자모 스트링이 그대로 복사된다.<p>
+이 함수는 자모 스트링 <em>src</em> 를 음절형으로 변환하여 <em>dest</em> 에 저장한다. <em>srclen</em> 에 지정된 갯수만큼 읽고, <em>destlen</em> 에 지정된 길이 이상 쓰지 않는다. <em>srclen</em> 이 -1이라면 <em>src</em> 는 0으로 끝나는 스트링으로 가정하고 0을 제외한 길이까지 변환을 시도한다. 따라서 변환된 결과 스트링은 0으로 끝나지 않는다. 만일 0으로 끝나는 스트링을 만들고 싶다면 다음과 같이 한다.<p>
+<div class="fragment"><pre class="fragment"> <span class="keywordtype">int</span> n = <a class="code" href="group__hangulctype.html#gacc8ef9ce4b4f80385a9bb8add2e3f4c" title="자모 스트링을 음절 스트링으로 변환">hangul_jamos_to_syllables</a>(dest, destlen, src, srclen);
+ dest[n] = 0;
+</pre></div> 
+</div>
+</div><p>
+<a class="anchor" name="g9eacc11b58f4c8d3d30fbdf7bea1ca66"></a><!-- doxytag: member="hangulctype.c::hangul_syllable_iterator_next" ref="g9eacc11b58f4c8d3d30fbdf7bea1ca66" args="(const ucschar *iter, const ucschar *end)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>* hangul_syllable_iterator_next           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td>
+          <td class="paramname"> <em>iter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td>
+          <td class="paramname"> <em>end</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<em>iter를</em> 기준으로 다음 음절의 첫자모 글자에 대한 포인터를 구하는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>iter</em>&nbsp;</td><td>현재 위치 </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>end</em>&nbsp;</td><td>스트링의 끝위치, 포인터가 이동할 한계값 </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd>다음 음절의 첫번째 자모에 대한 포인터</dd></dl>
+이 함수는 <em>iter로</em> 주어진 자모 스트링의 포인터를 기준으로 다음 음절의 첫번째 자모에 대한 포인터를 리턴한다. 음절을 찾기위해서 end를 넘어 이동하지 않는다.<p>
+한 음절이라고 판단하는 기준은 L*V*T+M? 패턴에 따른다. 
+</div>
+</div><p>
+<a class="anchor" name="g713c0515d849c266f2140736d7f93061"></a><!-- doxytag: member="hangulctype.c::hangul_syllable_iterator_prev" ref="g713c0515d849c266f2140736d7f93061" args="(const ucschar *iter, const ucschar *begin)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>* hangul_syllable_iterator_prev           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td>
+          <td class="paramname"> <em>iter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td>
+          <td class="paramname"> <em>begin</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<em>iter를</em> 기준으로 이전 음절의 첫자모 글자에 대한 포인터를 구하는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>iter</em>&nbsp;</td><td>현재 위치 </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>begin</em>&nbsp;</td><td>스트링의 시작위치, 포인터가 이동할 한계값 </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd>이전 음절의 첫번째 자모에 대한 포인터</dd></dl>
+이 함수는 <em>iter로</em> 주어진 자모 스트링의 포인터를 기준으로 이전 음절의 첫번째 자모에 대한 포인터를 리턴한다. 음절을 찾기위해서 begin보다 앞쪽으로 이동하지 않는다.<p>
+한 음절이라고 판단하는 기준은 L*V*T+M? 패턴에 따른다. 
+</div>
+</div><p>
+<a class="anchor" name="gf6e252781050757fb56131a450c459b3"></a><!-- doxytag: member="hangulctype.c::hangul_syllable_len" ref="gf6e252781050757fb56131a450c459b3" args="(const ucschar *str, int max_len)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hangul_syllable_len           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td>
+          <td class="paramname"> <em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>max_len</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+한 음절에 해당하는 코드의 갯수를 구하는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>str</em>&nbsp;</td><td>음절의 길이를 구할 스트링 </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>max_len</em>&nbsp;</td><td><em>str</em> 에서 읽을 길이의 제한값 </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd>한 음절에 해당하는 코드의 갯수</dd></dl>
+이 함수는 <em>str</em> 에서 한 음절에 해당하는 코드의 갯수를 구한다. 한 음절에 해당하는 코드의 갯수가 <em>max_len</em> 보다 많다면 <em>max_len</em> 을 반환한다. 한 음절이라고 판단하는 기준은 L*V*T+ 패턴에 따른다. 이 패턴은 regular expression의 컨벤션을 따른 것으로, 1개 이상의 초성과 중성, 0개 이상의 종성이 모인 자모 스트링을 한 음절로 인식한다는 뜻이다. 예를 들면 다음과 같은 자모 스트링도 한 음절로 인식한다.<p>
+예) "ㅂ ㅂ ㅜ ㅔ ㄹ ㄱ" -&gt; "쀍"<p>
+따라서 위 경우에는 6을 반환하게 된다.<p>
+일반적으로는 방점(U+302E, U+302F)까지 한 음절로 인식하겠지만, 이 함수는 음절과 자모간 변환을 편리하게 하기 위해 구현된 것으로 방점은 다른 음절로 인식한다.<p>
+<em>str</em> 이 자모 코드에 해당하지 않는 경우에는 1을 반환한다.<p>
+이 함수는 자모 스트링에서 총 음절의 갯수를 구하는 함수가 아님에 주의한다. 
+</div>
+</div><p>
+<a class="anchor" name="gb3581b43f1b9903d01aedcf1da057b6b"></a><!-- doxytag: member="hangulctype.c::hangul_syllable_to_jamo" ref="gb3581b43f1b9903d01aedcf1da057b6b" args="(ucschar syllable, ucschar *choseong, ucschar *jungseong, ucschar *jongseong)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hangul_syllable_to_jamo           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>&nbsp;</td>
+          <td class="paramname"> <em>syllable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td>
+          <td class="paramname"> <em>choseong</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td>
+          <td class="paramname"> <em>jungseong</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td>
+          <td class="paramname"> <em>jongseong</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+음절을 자모로 분해 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>syllable</em>&nbsp;</td><td>분해할 음절 </td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>반환값:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>choseong</em>&nbsp;</td><td>음절에서 초성 부분의 코드 </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>jungseong</em>&nbsp;</td><td>음절에서 중성 부분의 코드 </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>jongseong</em>&nbsp;</td><td>음절에서 종성 부분의 코드, 종성이 없으면 0을 반환한다 </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd>없음</dd></dl>
+이 함수는 <em>syllable</em> 로 주어진 음절 코드를 분해하여 자모 코드를 반환한다. 반환하는 값은 <em>choseong</em>, <em>jungseong</em>, <em>jongseong</em> 의 포인터에 대입하여 리턴한다. 종성이 없는 음절인 경우에는 <em>jongseong</em> 에 0을 반환한다. 
+</div>
+</div><p>
+<hr size="1"><address style="text-align: right;"><small>생성시간 : Wed Nov 23 23:31:45 2011, 프로젝트명 : libhangul, 생성자 : &nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.3-20071008 </small></address>
+</body>
+</html>

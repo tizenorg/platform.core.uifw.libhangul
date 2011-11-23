@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>libhangul: hangul.h 소스 파일</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- 다음에 의해 생성됨 :  Doxygen 1.5.3-20071008 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>메인&nbsp;페이지</span></a></li>
+    <li><a href="modules.html"><span>모듈</span></a></li>
+    <li class="current"><a href="files.html"><span>파일들</span></a></li>
+    <li><a href="dirs.html"><span>디렉토리</span></a></li>
+    <li><a href="pages.html"><span>관련된&nbsp;페이지</span></a></li>
+  </ul>
+</div>
+<div class="nav">
+<a class="el" href="dir_74e344cbec9860085ddf79a94754a2b6.html">hangul</a></div>
+<h1>hangul.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* libhangul</span>
+<a name="l00002"></a>00002 <span class="comment"> * Copyright (C) 2004 - 2007 Choe Hwanjin</span>
+<a name="l00003"></a>00003 <span class="comment"> *</span>
+<a name="l00004"></a>00004 <span class="comment"> * This library is free software; you can redistribute it and/or</span>
+<a name="l00005"></a>00005 <span class="comment"> * modify it under the terms of the GNU Lesser General Public</span>
+<a name="l00006"></a>00006 <span class="comment"> * License as published by the Free Software Foundation; either</span>
+<a name="l00007"></a>00007 <span class="comment"> * version 2.1 of the License, or (at your option) any later version.</span>
+<a name="l00008"></a>00008 <span class="comment"> *</span>
+<a name="l00009"></a>00009 <span class="comment"> * This library is distributed in the hope that it will be useful,</span>
+<a name="l00010"></a>00010 <span class="comment"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<a name="l00011"></a>00011 <span class="comment"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</span>
+<a name="l00012"></a>00012 <span class="comment"> * Lesser General Public License for more details.</span>
+<a name="l00013"></a>00013 <span class="comment"> *</span>
+<a name="l00014"></a>00014 <span class="comment"> * You should have received a copy of the GNU Lesser General Public</span>
+<a name="l00015"></a>00015 <span class="comment"> * License along with this library; if not, write to the Free Software</span>
+<a name="l00016"></a>00016 <span class="comment"> * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</span>
+<a name="l00017"></a>00017 <span class="comment"> */</span>
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="preprocessor">#ifndef libhangul_hangul_h</span>
+<a name="l00020"></a>00020 <span class="preprocessor"></span><span class="preprocessor">#define libhangul_hangul_h</span>
+<a name="l00021"></a>00021 <span class="preprocessor"></span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &lt;stdbool.h&gt;</span>
+<a name="l00023"></a>00023 <span class="preprocessor">#include &lt;inttypes.h&gt;</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="preprocessor">#ifdef __GNUC__</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span><span class="preprocessor">#define LIBHANGUL_DEPRECATED __attribute__((deprecated));</span>
+<a name="l00027"></a>00027 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00028"></a>00028 <span class="preprocessor"></span><span class="preprocessor">#define LIBHANGUL_DEPRECATED</span>
+<a name="l00029"></a>00029 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00030"></a>00030 <span class="preprocessor"></span>
+<a name="l00031"></a>00031 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00032"></a>00032 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">"C"</span> {
+<a name="l00033"></a>00033 <span class="preprocessor">#endif</span>
+<a name="l00034"></a>00034 <span class="preprocessor"></span>
+<a name="l00035"></a>00035 <span class="comment">/* hangulctype.c */</span>
+<a name="l00036"></a>00036 <span class="keyword">enum</span> {
+<a name="l00037"></a>00037     HANGUL_CHOSEONG_FILLER  = 0x115f,   <span class="comment">/* hangul choseong filler */</span>
+<a name="l00038"></a>00038     HANGUL_JUNGSEONG_FILLER = 0x1160    <span class="comment">/* hangul jungseong filler */</span>
+<a name="l00039"></a>00039 };
+<a name="l00040"></a>00040 
+<a name="l00041"></a><a class="code" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">00041</a> <span class="keyword">typedef</span> uint32_t <a class="code" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c" title="UCS4 코드 단위의 글자 코드 값">ucschar</a>;
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="keywordtype">bool</span> <a class="code" href="group__hangulctype.html#ge7e530bdd27641359932f0ec2f35baf7" title="초성인지 확인하는 함수">hangul_is_choseong</a>(ucschar c);
+<a name="l00044"></a>00044 <span class="keywordtype">bool</span> <a class="code" href="group__hangulctype.html#g13911613692587dbee7ad7a8e55d05de" title="중성인지 확인하는 함수">hangul_is_jungseong</a>(ucschar c);
+<a name="l00045"></a>00045 <span class="keywordtype">bool</span> <a class="code" href="group__hangulctype.html#gf27e727a59a10d93bce3000ba67cfee5" title="종성인지 확인하는 함수">hangul_is_jongseong</a>(ucschar c);
+<a name="l00046"></a>00046 <span class="keywordtype">bool</span> <a class="code" href="group__hangulctype.html#g2000b538de4cb62a340a7e43c915d47c" title="초성이고 조합 가능한지 확인">hangul_is_choseong_conjoinable</a>(ucschar c);
+<a name="l00047"></a>00047 <span class="keywordtype">bool</span> <a class="code" href="group__hangulctype.html#g1f21b5668d639a6f8239c0768eba26bb" title="중성이고 조합 가능한지 확인">hangul_is_jungseong_conjoinable</a>(ucschar c);
+<a name="l00048"></a>00048 <span class="keywordtype">bool</span> <a class="code" href="group__hangulctype.html#g27bf78bb7bfaa411edefdbc352ae99ba" title="종성이고 조합 가능한지 확인">hangul_is_jongseong_conjoinable</a>(ucschar c);
+<a name="l00049"></a>00049 <span class="keywordtype">bool</span> <a class="code" href="group__hangulctype.html#gbd6ca2bb0cd27983821116adf56b4691" title="한글 음절 인지 확">hangul_is_syllable</a>(ucschar c);
+<a name="l00050"></a>00050 <span class="keywordtype">bool</span> <a class="code" href="group__hangulctype.html#g88f2449a0cbd08eaa7ad303fe31863ae" title="자모 인지 확인">hangul_is_jamo</a>(ucschar c);
+<a name="l00051"></a>00051 <span class="keywordtype">bool</span> <a class="code" href="group__hangulctype.html#g45f5b595d03fd57b14605d53daae3e6e" title="호환 자모인지 확인">hangul_is_cjamo</a>(ucschar c);
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 ucschar <a class="code" href="group__hangulctype.html#g3098332f541aafb8112ea5f5a0b7d9d7" title="자모 코드를 대응하는 호환 자모로 변환">hangul_jamo_to_cjamo</a>(ucschar ch);
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="keyword">const</span> ucschar* <a class="code" href="group__hangulctype.html#g713c0515d849c266f2140736d7f93061" title="iter를 기준으로 이전 음절의 첫자모 글자에 대한 포인터를 구하는...">hangul_syllable_iterator_prev</a>(<span class="keyword">const</span> ucschar* str,
+<a name="l00056"></a>00056                                              <span class="keyword">const</span> ucschar* begin);
+<a name="l00057"></a>00057 <span class="keyword">const</span> ucschar* <a class="code" href="group__hangulctype.html#g9eacc11b58f4c8d3d30fbdf7bea1ca66" title="iter를 기준으로 다음 음절의 첫자모 글자에 대한 포인터를 구하는...">hangul_syllable_iterator_next</a>(<span class="keyword">const</span> ucschar* str,
+<a name="l00058"></a>00058                                              <span class="keyword">const</span> ucschar* end);
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060 <span class="keywordtype">int</span>     <a class="code" href="group__hangulctype.html#gf6e252781050757fb56131a450c459b3" title="한 음절에 해당하는 코드의 갯수를 구하는 함수">hangul_syllable_len</a>(<span class="keyword">const</span> ucschar* str, <span class="keywordtype">int</span> max_len);
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 ucschar <a class="code" href="group__hangulctype.html#g7f79e6e65454c3b074ac0483bb11b256" title="자모 코드를 조합하여 한글 음절로 변환">hangul_jamo_to_syllable</a>(ucschar choseong,
+<a name="l00063"></a>00063                                 ucschar jungseong,
+<a name="l00064"></a>00064                                 ucschar jongseong);
+<a name="l00065"></a>00065 <span class="keywordtype">void</span>    <a class="code" href="group__hangulctype.html#gb3581b43f1b9903d01aedcf1da057b6b" title="음절을 자모로 분해">hangul_syllable_to_jamo</a>(ucschar syllable,
+<a name="l00066"></a>00066                                 ucschar* choseong,
+<a name="l00067"></a>00067                                 ucschar* jungseong,
+<a name="l00068"></a>00068                                 ucschar* jongseong);
+<a name="l00069"></a>00069 <span class="keywordtype">int</span>     <a class="code" href="group__hangulctype.html#gacc8ef9ce4b4f80385a9bb8add2e3f4c" title="자모 스트링을 음절 스트링으로 변환">hangul_jamos_to_syllables</a>(ucschar* dest, <span class="keywordtype">int</span> destlen,
+<a name="l00070"></a>00070                                   <span class="keyword">const</span> ucschar* src, <span class="keywordtype">int</span> srclen);
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 <span class="comment">/* hangulinputcontext.c */</span>
+<a name="l00073"></a>00073 <span class="keyword">typedef</span> <span class="keyword">struct </span>_HangulKeyboard        HangulKeyboard;
+<a name="l00074"></a>00074 <span class="keyword">typedef</span> <span class="keyword">struct </span>_HangulCombination     HangulCombination;
+<a name="l00075"></a>00075 <span class="keyword">typedef</span> <span class="keyword">struct </span>_HangulBuffer          HangulBuffer;
+<a name="l00076"></a><a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">00076</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>_HangulInputContext    <a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a>;
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 <span class="keyword">enum</span> {
+<a name="l00079"></a>00079     HANGUL_OUTPUT_SYLLABLE,
+<a name="l00080"></a>00080     HANGUL_OUTPUT_JAMO
+<a name="l00081"></a>00081 };
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 <span class="keyword">enum</span> {
+<a name="l00084"></a>00084     HANGUL_KEYBOARD_TYPE_JAMO,
+<a name="l00085"></a>00085     HANGUL_KEYBOARD_TYPE_JASO,
+<a name="l00086"></a>00086     HANGUL_KEYBOARD_TYPE_ROMAJA
+<a name="l00087"></a>00087 };
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 <span class="comment">/* keyboard */</span>
+<a name="l00090"></a>00090 HangulKeyboard* hangul_keyboard_new(<span class="keywordtype">void</span>);
+<a name="l00091"></a>00091 <span class="keywordtype">void</span>    hangul_keyboard_delete(HangulKeyboard *keyboard);
+<a name="l00092"></a>00092 <span class="keywordtype">void</span>    hangul_keyboard_set_value(HangulKeyboard *keyboard,
+<a name="l00093"></a>00093                                   <span class="keywordtype">int</span> key, ucschar value);
+<a name="l00094"></a>00094 <span class="keywordtype">void</span>    hangul_keyboard_set_type(HangulKeyboard *keyboard, <span class="keywordtype">int</span> type);
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 <span class="comment">/* combination */</span>
+<a name="l00097"></a>00097 HangulCombination* hangul_combination_new(<span class="keywordtype">void</span>);
+<a name="l00098"></a>00098 <span class="keywordtype">void</span> hangul_combination_delete(HangulCombination *combination);
+<a name="l00099"></a>00099 <span class="keywordtype">bool</span> hangul_combination_set_data(HangulCombination* combination, 
+<a name="l00100"></a>00100                      ucschar* first, ucschar* second, ucschar* result, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n);
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 <span class="comment">/* input context */</span>
+<a name="l00103"></a>00103 <a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a>* <a class="code" href="group__hangulic.html#g323e53954c0fe5869ffc4cbcfc2be897" title="HangulInputContext 오브젝트를 생성한다.">hangul_ic_new</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* keyboard);
+<a name="l00104"></a>00104 <span class="keywordtype">void</span> <a class="code" href="group__hangulic.html#g3f153cf60e726535ad175ebb894f584d" title="HangulInputContext를 삭제하는 함수">hangul_ic_delete</a>(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a> *hic);
+<a name="l00105"></a>00105 <span class="keywordtype">bool</span> <a class="code" href="group__hangulic.html#g26a39855a3fb03a1f794aca464ae132e" title="키 입력을 처리하여 실제로 한글 조합을 하는 함수">hangul_ic_process</a>(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a> *hic, <span class="keywordtype">int</span> ascii);
+<a name="l00106"></a>00106 <span class="keywordtype">void</span> <a class="code" href="group__hangulic.html#g2fa2f5972adbdacd38e1edf62ff9fc53" title="HangulInputContext를 초기상태로 되돌리는 함수">hangul_ic_reset</a>(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a> *hic);
+<a name="l00107"></a>00107 <span class="keywordtype">bool</span> <a class="code" href="group__hangulic.html#g8d886ba7f2e3adb1fbc8c00d58b825b3" title="HangulInputContext가 backspace 키를 처리하도록 하는 함수">hangul_ic_backspace</a>(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a> *hic);
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 <span class="keywordtype">bool</span> <a class="code" href="group__hangulic.html#g392305eaf52e31967719fc039b267956" title="HangulInputContext가 조합중인 글자를 가지고 있는지 확인하는 함수...">hangul_ic_is_empty</a>(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a> *hic);
+<a name="l00110"></a>00110 <span class="keywordtype">bool</span> <a class="code" href="group__hangulic.html#gf6a03d6bf05b58cc50ed10e2c7172a33" title="HangulInputContext가 조합중인 초성을 가지고 있는지 확인하는 함수...">hangul_ic_has_choseong</a>(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a> *hic);
+<a name="l00111"></a>00111 <span class="keywordtype">bool</span> <a class="code" href="group__hangulic.html#g4509b431ce3a9c8b2b74120ea5dde9b5" title="HangulInputContext가 조합중인 중성을 가지고 있는지 확인하는 함수...">hangul_ic_has_jungseong</a>(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a> *hic);
+<a name="l00112"></a>00112 <span class="keywordtype">bool</span> <a class="code" href="group__hangulic.html#gcef5c615ac50da4dc99f50934739c424" title="HangulInputContext가 조합중인 종성을 가지고 있는지 확인하는 함수...">hangul_ic_has_jongseong</a>(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a> *hic);
+<a name="l00113"></a>00113 <span class="keywordtype">bool</span> <a class="code" href="group__hangulic.html#gc9e3230e98035854b806436d0569596e" title="주어진 hic가 transliteration method인지 판별">hangul_ic_is_transliteration</a>(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a> *hic);
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115 <span class="keywordtype">void</span> hangul_ic_set_output_mode(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a> *hic, <span class="keywordtype">int</span> mode);
+<a name="l00116"></a>00116 <span class="keywordtype">void</span> hangul_ic_set_keyboard(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a> *hic,
+<a name="l00117"></a>00117                             <span class="keyword">const</span> HangulKeyboard *keyboard);
+<a name="l00118"></a>00118 <span class="keywordtype">void</span> <a class="code" href="group__hangulic.html#g7dd66ed8f04fe95ff401f2b29e10db1f" title="HangulInputContext의 자판 배열을 바꾸는 함수">hangul_ic_select_keyboard</a>(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a> *hic,
+<a name="l00119"></a>00119                                <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keywordtype">id</span>);
+<a name="l00120"></a>00120 <span class="keywordtype">void</span> hangul_ic_set_combination(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a> *hic,
+<a name="l00121"></a>00121                                <span class="keyword">const</span> HangulCombination *combination);
+<a name="l00122"></a>00122 <span class="keywordtype">void</span> hangul_ic_connect_callback(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a>* hic, <span class="keyword">const</span> <span class="keywordtype">char</span>* event,
+<a name="l00123"></a>00123                                 <span class="keywordtype">void</span>* callback, <span class="keywordtype">void</span>* user_data);
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125 <span class="keywordtype">unsigned</span>    hangul_ic_get_n_keyboards();
+<a name="l00126"></a>00126 <span class="keyword">const</span> <span class="keywordtype">char</span>* hangul_ic_get_keyboard_id(<span class="keywordtype">unsigned</span> index_);
+<a name="l00127"></a>00127 <span class="keyword">const</span> <span class="keywordtype">char</span>* hangul_ic_get_keyboard_name(<span class="keywordtype">unsigned</span> index_);
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129 <span class="keyword">const</span> ucschar* <a class="code" href="group__hangulic.html#gc39496296816be4b516659b322e73d64" title="현재 상태의 preedit string을 구하는 함수">hangul_ic_get_preedit_string</a>(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a> *hic);
+<a name="l00130"></a>00130 <span class="keyword">const</span> ucschar* <a class="code" href="group__hangulic.html#gbe09f347ac91563b4dd45f93c5bd9a03" title="현재 상태의 commit string을 구하는 함수">hangul_ic_get_commit_string</a>(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a> *hic);
+<a name="l00131"></a>00131 <span class="keyword">const</span> ucschar* <a class="code" href="group__hangulic.html#g40e3e40e46d1554a6e2e85280396a6b5" title="HangulInputContext의 입력 상태를 완료하는 함수">hangul_ic_flush</a>(<a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a> *hic);
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133 <span class="comment">/* hanja.c */</span>
+<a name="l00134"></a><a class="code" href="group__hanjadictionary.html#g96969351e2a98eb1e776275338822271">00134</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>_Hanja <a class="code" href="group__hanjadictionary.html#g96969351e2a98eb1e776275338822271" title="한자 사전 검색 결과의 최소 단위">Hanja</a>;
+<a name="l00135"></a><a class="code" href="group__hanjadictionary.html#g4a7a4937b0fbe7689f2d2935c34be19b">00135</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>_HanjaList <a class="code" href="group__hanjadictionary.html#g4a7a4937b0fbe7689f2d2935c34be19b" title="한자 사전의 검색 결과를 전달하는데 사용하는 오브젝트">HanjaList</a>;
+<a name="l00136"></a><a class="code" href="group__hanjadictionary.html#gd58042533438c8e2672738474bf9f981">00136</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>_HanjaTable <a class="code" href="group__hanjadictionary.html#gd58042533438c8e2672738474bf9f981" title="한자 사전을 관리하는데 사용하는 오브젝트">HanjaTable</a>;
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138 <a class="code" href="group__hanjadictionary.html#gd58042533438c8e2672738474bf9f981" title="한자 사전을 관리하는데 사용하는 오브젝트">HanjaTable</a>*  <a class="code" href="group__hanjadictionary.html#gaad25fe6ea42acca94b6e94868d2d4fc" title="한자 사전 파일을 로딩하는 함수">hanja_table_load</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename);
+<a name="l00139"></a>00139 <a class="code" href="group__hanjadictionary.html#g4a7a4937b0fbe7689f2d2935c34be19b" title="한자 사전의 검색 결과를 전달하는데 사용하는 오브젝트">HanjaList</a>*   <a class="code" href="group__hanjadictionary.html#gf260f28723a8084ed36e81d751f394f2" title="한자 사전에서 매치되는 키를 가진 엔트리를 찾는 함수">hanja_table_match_exact</a>(<span class="keyword">const</span> <a class="code" href="group__hanjadictionary.html#gd58042533438c8e2672738474bf9f981" title="한자 사전을 관리하는데 사용하는 오브젝트">HanjaTable</a>* table, <span class="keyword">const</span> <span class="keywordtype">char</span> *key);
+<a name="l00140"></a>00140 <a class="code" href="group__hanjadictionary.html#g4a7a4937b0fbe7689f2d2935c34be19b" title="한자 사전의 검색 결과를 전달하는데 사용하는 오브젝트">HanjaList</a>*   <a class="code" href="group__hanjadictionary.html#g8605f5e6a162e9bc60ca6ff43b4369e6" title="한자 사전에서 앞부분이 매치되는 키를 가진 엔트리를 찾는 함수...">hanja_table_match_prefix</a>(<span class="keyword">const</span> <a class="code" href="group__hanjadictionary.html#gd58042533438c8e2672738474bf9f981" title="한자 사전을 관리하는데 사용하는 오브젝트">HanjaTable</a>* table, <span class="keyword">const</span> <span class="keywordtype">char</span> *key);
+<a name="l00141"></a>00141 <a class="code" href="group__hanjadictionary.html#g4a7a4937b0fbe7689f2d2935c34be19b" title="한자 사전의 검색 결과를 전달하는데 사용하는 오브젝트">HanjaList</a>*   <a class="code" href="group__hanjadictionary.html#g2466c41d985a584f569b2ed6b9c74cca" title="한자 사전에서 뒷부분이 매치되는 키를 가진 엔트리를 찾는 함수...">hanja_table_match_suffix</a>(<span class="keyword">const</span> <a class="code" href="group__hanjadictionary.html#gd58042533438c8e2672738474bf9f981" title="한자 사전을 관리하는데 사용하는 오브젝트">HanjaTable</a>* table, <span class="keyword">const</span> <span class="keywordtype">char</span> *key);
+<a name="l00142"></a>00142 <span class="keywordtype">void</span>         <a class="code" href="group__hanjadictionary.html#g59c749533062905732587d0ff9b6f5a9" title="한자 사전 object를 free하는 함수">hanja_table_delete</a>(<a class="code" href="group__hanjadictionary.html#gd58042533438c8e2672738474bf9f981" title="한자 사전을 관리하는데 사용하는 오브젝트">HanjaTable</a> *table);
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144 <span class="keywordtype">int</span>          <a class="code" href="group__hanjadictionary.html#g752da8c61bdfd61b9fbca08fb585e490" title="HanjaList가 가지고 있는 아이템의 갯수를 구하는 함수">hanja_list_get_size</a>(<span class="keyword">const</span> <a class="code" href="group__hanjadictionary.html#g4a7a4937b0fbe7689f2d2935c34be19b" title="한자 사전의 검색 결과를 전달하는데 사용하는 오브젝트">HanjaList</a> *list);
+<a name="l00145"></a>00145 <span class="keyword">const</span> <span class="keywordtype">char</span>*  <a class="code" href="group__hanjadictionary.html#g1fb2943130c52b8dc57566beca98a305" title="HanjaList가 생성될때 검색함수에서 사용한 키를 구하는 함수">hanja_list_get_key</a>(<span class="keyword">const</span> <a class="code" href="group__hanjadictionary.html#g4a7a4937b0fbe7689f2d2935c34be19b" title="한자 사전의 검색 결과를 전달하는데 사용하는 오브젝트">HanjaList</a> *list);
+<a name="l00146"></a>00146 <span class="keyword">const</span> <a class="code" href="group__hanjadictionary.html#g96969351e2a98eb1e776275338822271" title="한자 사전 검색 결과의 최소 단위">Hanja</a>* <a class="code" href="group__hanjadictionary.html#g18b8b720d23613a7895f23f7dad926e1" title="HanjaList 의 n번째 Hanja 아이템의 포인터를 구하는 함수">hanja_list_get_nth</a>(<span class="keyword">const</span> <a class="code" href="group__hanjadictionary.html#g4a7a4937b0fbe7689f2d2935c34be19b" title="한자 사전의 검색 결과를 전달하는데 사용하는 오브젝트">HanjaList</a> *list, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n);
+<a name="l00147"></a>00147 <span class="keyword">const</span> <span class="keywordtype">char</span>*  <a class="code" href="group__hanjadictionary.html#g6185a26a275245ee52660eb91b9b57ca" title="HanjaList 의 n번째 아이템의 키를 구하는 함수">hanja_list_get_nth_key</a>(<span class="keyword">const</span> <a class="code" href="group__hanjadictionary.html#g4a7a4937b0fbe7689f2d2935c34be19b" title="한자 사전의 검색 결과를 전달하는데 사용하는 오브젝트">HanjaList</a> *list, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n);
+<a name="l00148"></a>00148 <span class="keyword">const</span> <span class="keywordtype">char</span>*  <a class="code" href="group__hanjadictionary.html#gd86b9ac4d57462a74e5c2e6d7400a447" title="HanjaList의 n번째 아이템의 값를 구하는 함수">hanja_list_get_nth_value</a>(<span class="keyword">const</span> <a class="code" href="group__hanjadictionary.html#g4a7a4937b0fbe7689f2d2935c34be19b" title="한자 사전의 검색 결과를 전달하는데 사용하는 오브젝트">HanjaList</a> *list, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n);
+<a name="l00149"></a>00149 <span class="keyword">const</span> <span class="keywordtype">char</span>*  <a class="code" href="group__hanjadictionary.html#g978c07c6bb77fa9bd468344dce5a407c" title="HanjaList의 n번째 아이템의 설명을 구하는 함수">hanja_list_get_nth_comment</a>(<span class="keyword">const</span> <a class="code" href="group__hanjadictionary.html#g4a7a4937b0fbe7689f2d2935c34be19b" title="한자 사전의 검색 결과를 전달하는데 사용하는 오브젝트">HanjaList</a> *list, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n);
+<a name="l00150"></a>00150 <span class="keywordtype">void</span>         <a class="code" href="group__hanjadictionary.html#g63619e6913dd17925c0f7a13068eee72" title="한자 사전 검색 함수가 리턴한 결과를 free하는 함수">hanja_list_delete</a>(<a class="code" href="group__hanjadictionary.html#g4a7a4937b0fbe7689f2d2935c34be19b" title="한자 사전의 검색 결과를 전달하는데 사용하는 오브젝트">HanjaList</a> *list);
+<a name="l00151"></a>00151 
+<a name="l00152"></a>00152 <span class="keyword">const</span> <span class="keywordtype">char</span>*  <a class="code" href="group__hanjadictionary.html#g859e26859e874957f89be5debd783644" title="Hanja의 키를 찾아본다.">hanja_get_key</a>(<span class="keyword">const</span> <a class="code" href="group__hanjadictionary.html#g96969351e2a98eb1e776275338822271" title="한자 사전 검색 결과의 최소 단위">Hanja</a>* hanja);
+<a name="l00153"></a>00153 <span class="keyword">const</span> <span class="keywordtype">char</span>*  <a class="code" href="group__hanjadictionary.html#g3b86a3debe7ca1db3edf86c4db6b07e6" title="Hanja의 값을 찾아본다.">hanja_get_value</a>(<span class="keyword">const</span> <a class="code" href="group__hanjadictionary.html#g96969351e2a98eb1e776275338822271" title="한자 사전 검색 결과의 최소 단위">Hanja</a>* hanja);
+<a name="l00154"></a>00154 <span class="keyword">const</span> <span class="keywordtype">char</span>*  <a class="code" href="group__hanjadictionary.html#g72b4748e039981d3f63d76fb6431361f" title="Hanja의 설명을 찾아본다.">hanja_get_comment</a>(<span class="keyword">const</span> <a class="code" href="group__hanjadictionary.html#g96969351e2a98eb1e776275338822271" title="한자 사전 검색 결과의 최소 단위">Hanja</a>* hanja);
+<a name="l00155"></a>00155 
+<a name="l00156"></a>00156 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00157"></a>00157 <span class="preprocessor"></span>}
+<a name="l00158"></a>00158 <span class="preprocessor">#endif</span>
+<a name="l00159"></a>00159 <span class="preprocessor"></span>
+<a name="l00160"></a>00160 <span class="preprocessor">#undef LIBHANGUL_DEPRECATED</span>
+<a name="l00161"></a>00161 <span class="preprocessor"></span>
+<a name="l00162"></a>00162 <span class="preprocessor">#endif </span><span class="comment">/* libhangul_hangul_h */</span>
+</pre></div><hr size="1"><address style="text-align: right;"><small>생성시간 : Wed Nov 23 23:31:45 2011, 프로젝트명 : libhangul, 생성자 : &nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.3-20071008 </small></address>
+</body>
+</html>
