@@ -1,0 +1,608 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>libhangul: 한글 입력 기능 구현</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- 다음에 의해 생성됨 :  Doxygen 1.5.3-20071008 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>메인&nbsp;페이지</span></a></li>
+    <li><a href="modules.html"><span>모듈</span></a></li>
+    <li><a href="files.html"><span>파일들</span></a></li>
+    <li><a href="dirs.html"><span>디렉토리</span></a></li>
+    <li><a href="pages.html"><span>관련된&nbsp;페이지</span></a></li>
+  </ul>
+</div>
+<h1>한글 입력 기능 구현</h1><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>타입정의</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef struct _HangulInputContext&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">한글 입력 상태를 관리하기 위한 오브젝트  <a href="#g623ec57b85ebf33279989f3e6bc2d59a"></a><br></td></tr>
+<tr><td colspan="2"><br><h2>함수</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g26a39855a3fb03a1f794aca464ae132e">hangul_ic_process</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, int ascii)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">키 입력을 처리하여 실제로 한글 조합을 하는 함수  <a href="#g26a39855a3fb03a1f794aca464ae132e"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#gc39496296816be4b516659b322e73d64">hangul_ic_get_preedit_string</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">현재 상태의 preedit string을 구하는 함수  <a href="#gc39496296816be4b516659b322e73d64"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#gbe09f347ac91563b4dd45f93c5bd9a03">hangul_ic_get_commit_string</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">현재 상태의 commit string을 구하는 함수  <a href="#gbe09f347ac91563b4dd45f93c5bd9a03"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g2fa2f5972adbdacd38e1edf62ff9fc53">hangul_ic_reset</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>를 초기상태로 되돌리는 함수  <a href="#g2fa2f5972adbdacd38e1edf62ff9fc53"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g40e3e40e46d1554a6e2e85280396a6b5">hangul_ic_flush</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 입력 상태를 완료하는 함수  <a href="#g40e3e40e46d1554a6e2e85280396a6b5"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g8d886ba7f2e3adb1fbc8c00d58b825b3">hangul_ic_backspace</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 backspace 키를 처리하도록 하는 함수  <a href="#g8d886ba7f2e3adb1fbc8c00d58b825b3"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g392305eaf52e31967719fc039b267956">hangul_ic_is_empty</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 조합중인 글자를 가지고 있는지 확인하는 함수  <a href="#g392305eaf52e31967719fc039b267956"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#gf6a03d6bf05b58cc50ed10e2c7172a33">hangul_ic_has_choseong</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 조합중인 초성을 가지고 있는지 확인하는 함수  <a href="#gf6a03d6bf05b58cc50ed10e2c7172a33"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g4509b431ce3a9c8b2b74120ea5dde9b5">hangul_ic_has_jungseong</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 조합중인 중성을 가지고 있는지 확인하는 함수  <a href="#g4509b431ce3a9c8b2b74120ea5dde9b5"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#gcef5c615ac50da4dc99f50934739c424">hangul_ic_has_jongseong</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 조합중인 종성을 가지고 있는지 확인하는 함수  <a href="#gcef5c615ac50da4dc99f50934739c424"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g7dd66ed8f04fe95ff401f2b29e10db1f">hangul_ic_select_keyboard</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, const char *id)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 자판 배열을 바꾸는 함수  <a href="#g7dd66ed8f04fe95ff401f2b29e10db1f"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g323e53954c0fe5869ffc4cbcfc2be897">hangul_ic_new</a> (const char *keyboard)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 오브젝트를 생성한다.  <a href="#g323e53954c0fe5869ffc4cbcfc2be897"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g3f153cf60e726535ad175ebb894f584d">hangul_ic_delete</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>를 삭제하는 함수  <a href="#g3f153cf60e726535ad175ebb894f584d"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#gc9e3230e98035854b806436d0569596e">hangul_ic_is_transliteration</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">주어진 hic가 transliteration method인지 판별  <a href="#gc9e3230e98035854b806436d0569596e"></a><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>상세한 설명</h2>
+<h2><a class="anchor" name="hangulicusage">
+Hangul Input Context의 사용법</a></h2>
+이 섹션에서는 한글 입력 기능을 구현하는 핵심 기능에 대해 설명한다.<p>
+먼저 preedit string과 commit string 이 두 용어에 대해서 설멍하겠다. 이 두가지 용어는 Unix 계열의 입력기 framework에서 널리 쓰이는 표현이다.<p>
+preedit string은 아직 조합중으로 어플리케이션에 완전히 입력되지 않은 스트링을 가리킨다. 일반적으로 한글 입력기에서는 역상으로 보이고 일본 중국어 입력기에서는 underline이 붙어 나타난다. 아직 완성이 되지 않은 스트링이므로 어플리케이션에 전달이 되지 않고 사라질 수도 있다.<p>
+commit string은 조합이 완료되어 어플리케이션에 전달되는 스트링이다. 이 스트링은 실제 어플리케이션의 텍스트로 인식이 되므로 이 이후에는 더이상 입력기가 관리할 수 있는 데이터가 아니다.<p>
+한글 입력과정은 다음과 같은 과정을 거치게 된다. 입력된 영문 키를 그에 해댱하는 한글 자모로 변환한후 한글 자모를 모아 하나의 음절을 만든다. 여기까지 이루어지는 과정을 preedit string 형태로 사용자에게 계속 보이게 하는 것이 필요하다. 그리고는 한글 음절이 완성되고나면 그 글자를 어플리케이션에 commit string 형태로 보내여 입력을 완료하는 것이다. 다음 키를 받게 되면 이 과정을 반복해서 수행한다.<p>
+libhangul에서 한글 조합 기능은 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>를 이용해서 구현하게 되는데 기본 적인 방법은 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>에 사용자로부터의 입력을 순서대로 전달하면서 그 상태가 바뀜에 따라서 preedit 나 commit 스트링을 상황에 맞게 변화시키는 것이다.<p>
+입력 코드들은 GUI 코드와 밀접하게 붙어 있어서 키 이벤트를 받아서 처리하도록 구현하는 것이 보통이다. 그런데 유닉스에는 많은 입력 프레임웍들이 난립하고 있는 상황이어서 매 입력 프레임웍마다 한글 조합 루틴을 작성해서 넣는 것은 비효율적이다. 간단한 API를 구현하여 여러 프레임웍에서 바로 사용할 수 있도록 구현하는 편이 사용성이 높아지게 된다.<p>
+그래서 libhangul에서는 키 이벤트를 따로 재정의하지 않고 ASCII 코드를 직접 사용하는 방향으로 재정의된 데이터가 많지 않도록 하였다. 실제 사용 방법은 말로 설명하는 것보다 샘플 코드를 사용하는 편이 이해가 빠를 것이다. 그래서 대략적인 진행 과정을 샘플 코드로 작성하였다.<p>
+아래 예제는 실제로는 존재하지 않는 GUI 라이브러리 코드를 사용하였다. 실제 GUI 코드를 사용하면 코드가 너무 길어져서 설명이 어렵고 코드가 길어지면 핵심을 놓치기 쉽기 때문에 가공의 함수를 사용하였다. 또한 텍스트의 encoding conversion 관련된 부분도 생략하였다. 여기서 사용한 가공의 GUI 코드는 TWin으로 시작하게 하였다.<p>
+<div class="fragment"><pre class="fragment">    <a class="code" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a" title="한글 입력 상태를 관리하기 위한 오브젝트">HangulInputContext</a>* hic = <a class="code" href="group__hangulic.html#g323e53954c0fe5869ffc4cbcfc2be897" title="HangulInputContext 오브젝트를 생성한다.">hangul_ic_new</a>(<span class="stringliteral">"2"</span>);
+    ...
+
+    <span class="comment">// 아래는 키 입력만 처리하는 이벤트 루프이다.</span>
+    <span class="comment">// 실제 GUI코드는 이렇게 단순하진 않지만</span>
+    <span class="comment">// 편의상 키 입력만 처리하는 코드로 작성하였다.</span>
+
+    TWinKeyEvent <span class="keyword">event</span> = TWinGetKeyEvent(); <span class="comment">// 키이벤트를 받는 이런 함수가</span>
+                                            <span class="comment">// 있다고 치자</span>
+    <span class="keywordflow">while</span> (ascii != 0) {
+        <span class="keywordtype">bool</span> res;
+        <span class="keywordflow">if</span> (event.isBackspace()) {
+            <span class="comment">// backspace를 ascii로 변환하기가 좀 꺼림직해서</span>
+            <span class="comment">// libhangul에서는 backspace 처리를 위한 </span>
+            <span class="comment">// 함수를 따로 만들었다.</span>
+            res = <a class="code" href="group__hangulic.html#g8d886ba7f2e3adb1fbc8c00d58b825b3" title="HangulInputContext가 backspace 키를 처리하도록 하는 함수">hangul_ic_backspace</a>(hic);
+        } <span class="keywordflow">else</span> {
+            <span class="comment">// 키 입력을 해당하는 ascii 코드로 변환한다.</span>
+            <span class="comment">// libhangul에서는 이 ascii 코드가 키 이벤트</span>
+            <span class="comment">// 코드와 마찬가지다.</span>
+            <span class="keywordtype">int</span> ascii = <span class="keyword">event</span>.getAscii();
+
+            <span class="comment">// 키 입력을 받았으면 이것을 hic에 먼저 보낸다.</span>
+            <span class="comment">// 그래야 hic가 이 키를 사용할 것인지 아닌지를 판단할 수 있다.</span>
+            <span class="comment">// 함수가 true를 리턴하면 이 키를 사용했다는 의미이므로 </span>
+            <span class="comment">// GUI 코드가 이 키 입력을 프로세싱하지 않도록 해야 한다.</span>
+            <span class="comment">// 그렇지 않으면 한 키입력이 두번 프로세싱된다.</span>
+            res = <a class="code" href="group__hangulic.html#g26a39855a3fb03a1f794aca464ae132e" title="키 입력을 처리하여 실제로 한글 조합을 하는 함수">hangul_ic_process</a>(hic, ascii);
+        }
+        
+        <span class="comment">// hic는 한번 키입력을 받고 나면 내부 상태 변화가 일어나고</span>
+        <span class="comment">// 완성된 글자를 어플리케이션에 보내야 하는 상황이 있을 수 있다.</span>
+        <span class="comment">// 이것을 HangulInputContext에서는 commit 스트링이 있는지로</span>
+        <span class="comment">// 판단한다. commit 스트링을 받아봐서 스트링이 있다면 </span>
+        <span class="comment">// 그 스트링으로 입력이 완료된 걸로 본다.</span>
+        <span class="keyword">const</span> <a class="code" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c" title="UCS4 코드 단위의 글자 코드 값">ucschar</a> commit;
+        commit = <a class="code" href="group__hangulic.html#gbe09f347ac91563b4dd45f93c5bd9a03" title="현재 상태의 commit string을 구하는 함수">hangul_ic_get_commit_string</a>(hic);
+        <span class="keywordflow">if</span> (commit[0] != 0) {   <span class="comment">// 스트링의 길이를 재서 commit 스트링이 있는지</span>
+                                <span class="comment">// 판단한다.</span>
+            TWinInputUnicodeChars(commit);
+        }
+
+        <span class="comment">// 키입력 후에는 preedit string도 역시 변화하게 되는데</span>
+        <span class="comment">// 입력기 프레임웍에서는 이 스트링을 화면에 보여주어야</span>
+        <span class="comment">// 조합중인 글자가 화면에 표시가 되는 것이다.</span>
+        <span class="keyword">const</span> <a class="code" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c" title="UCS4 코드 단위의 글자 코드 값">ucschar</a> preedit;
+        preedit = <a class="code" href="group__hangulic.html#gc39496296816be4b516659b322e73d64" title="현재 상태의 preedit string을 구하는 함수">hangul_ic_get_preedit_string</a>(hic);
+        <span class="comment">// 이 경우에는 스트링의 길이에 관계없이 항상 업데이트를 </span>
+        <span class="comment">// 해야 한다. 왜냐하면 이전에 조합중이던 글자가 있다가</span>
+        <span class="comment">// 조합이 완료되면서 조합중인 상태의 글자가 없어질 수도 있기 때문에</span>
+        <span class="comment">// 스트링의 길이에 관계없이 현재 상태의 스트링을 preedit </span>
+        <span class="comment">// 스트링으로 보여주면 되는 것이다.</span>
+        TWinUpdatePreeditString(preedit);
+
+        <span class="comment">// 위 두작업이 끝난후에는 키 이벤트를 계속 프로세싱해야 하는지 </span>
+        <span class="comment">// 아닌지를 처리해야 한다.</span>
+        <span class="comment">// hic가 키 이벤트를 사용하지 않았다면 기본 GUI 코드에 계속해서</span>
+        <span class="comment">// 키 이벤트 프로세싱을 진행하도록 해야 한다.</span>
+        <span class="keywordflow">if</span> (!res)
+            TWinForwardKeyEventToUI(ascii);
+
+        ascii = GetKeyEvent();
+    }
+
+    <a class="code" href="group__hangulic.html#g3f153cf60e726535ad175ebb894f584d" title="HangulInputContext를 삭제하는 함수">hangul_ic_delete</a>(hic);
+</pre></div> <hr><h2>타입정의 문서화</h2>
+<a class="anchor" name="g623ec57b85ebf33279989f3e6bc2d59a"></a><!-- doxytag: member="hangul.h::HangulInputContext" ref="g623ec57b85ebf33279989f3e6bc2d59a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+한글 입력 상태를 관리하기 위한 오브젝트 
+<p>
+libhangul에서 제공하는 한글 조합 루틴에서 상태 정보를 저장하는 opaque 데이타 오브젝트이다. 이 오브젝트에 키입력 정보를 순차적으로 보내주면서 preedit 스트링이나, commit 스트링을 받아서 처리하면 한글 입력 기능을 손쉽게 구현할 수 있다. 내부의 데이터 멤버는 공개되어 있지 않다. 각각의 멤버는 accessor 함수로만 참조하여야 한다. 
+</div>
+</div><p>
+<hr><h2>함수 문서화</h2>
+<a class="anchor" name="g8d886ba7f2e3adb1fbc8c00d58b825b3"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_backspace" ref="g8d886ba7f2e3adb1fbc8c00d58b825b3" args="(HangulInputContext *hic)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hangul_ic_backspace           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *&nbsp;</td>
+          <td class="paramname"> <em>hic</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 backspace 키를 처리하도록 하는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>hic</em>&nbsp;</td><td><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>를 가리키는 포인터 </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd><em>hic가</em> 키를 사용했으면 true, 사용하지 않았으면 false</dd></dl>
+이 함수는 <em>hic가</em> 가리키는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 조합중이던 글자를 뒤에서부터 하나 지우는 기능을 한다. backspace 키를 눌렀을 때 발생하는 동작을 한다. 따라서 이 함수를 부르고 나면 preedit string이 바뀌므로 반드시 업데이트를 해야 한다.<p>
+<dl class="remark" compact><dt><b>Remarks:</b></dt><dd>이 함수는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 상태를 변화 시킨다. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="g3f153cf60e726535ad175ebb894f584d"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_delete" ref="g3f153cf60e726535ad175ebb894f584d" args="(HangulInputContext *hic)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hangul_ic_delete           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *&nbsp;</td>
+          <td class="paramname"> <em>hic</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>를 삭제하는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>hic</em>&nbsp;</td><td><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 오브젝트</td></tr>
+  </table>
+</dl>
+<em>hic가</em> 가리키는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 오브젝트의 메모리를 해제한다. <a class="el" href="group__hangulic.html#g323e53954c0fe5869ffc4cbcfc2be897" title="HangulInputContext 오브젝트를 생성한다.">hangul_ic_new()</a> 함수로 생성된 모든 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 오브젝트는 이 함수로 메모리해제를 해야 한다. 메모리 해제 과정에서 상태 변화는 일어나지 않으므로 마지막 입력된 조합중이던 내용은 사라지게 된다. 
+</div>
+</div><p>
+<a class="anchor" name="g40e3e40e46d1554a6e2e85280396a6b5"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_flush" ref="g40e3e40e46d1554a6e2e85280396a6b5" args="(HangulInputContext *hic)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>* hangul_ic_flush           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *&nbsp;</td>
+          <td class="paramname"> <em>hic</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 입력 상태를 완료하는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>hic</em>&nbsp;</td><td><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>를 가리키는 포인터 </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd>조합 완료된 스트링, 스트링의 길이가 0이면 조합 완료된 스트링이 없는 것</dd></dl>
+이 함수는 <em>hic가</em> 가리키는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 입력 상태를 완료한다. 조합중이던 스트링을 완성하여 리턴한다. 그리고 입력 상태가 초기 상태로 되돌아 간다. 조합중이던 글자를 강제로 commit하고 싶을때 사용하는 함수다. 보통의 경우 입력 framework에서 focus가 나갈때 이 함수를 불러서 마지막 상태를 완료해야 조합중이던 글자를 잃어버리지 않게 된다.<p>
+비교: <a class="el" href="group__hangulic.html#g2fa2f5972adbdacd38e1edf62ff9fc53" title="HangulInputContext를 초기상태로 되돌리는 함수">hangul_ic_reset()</a><p>
+<dl class="remark" compact><dt><b>Remarks:</b></dt><dd>이 함수는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 상태를 변화 시킨다. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="gbe09f347ac91563b4dd45f93c5bd9a03"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_get_commit_string" ref="gbe09f347ac91563b4dd45f93c5bd9a03" args="(HangulInputContext *hic)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>* hangul_ic_get_commit_string           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *&nbsp;</td>
+          <td class="paramname"> <em>hic</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+현재 상태의 commit string을 구하는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>hic</em>&nbsp;</td><td>commit string을 구하고자하는 입력 상태 object </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd>UCS4 commit 스트링, 이 스트링은 <em>hic</em> 내부의 데이터이므로 수정하거나 free해서는 안된다.</dd></dl>
+이 함수는 <em>hic</em> 내부의 현재 상태의 commit string을 리턴한다. 따라서 hic가 다른 키 이벤트를 처리하고 나면 그 내용이 바뀔 수 있다.<p>
+<dl class="remark" compact><dt><b>Remarks:</b></dt><dd>이 함수는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 상태를 변화 시키지 않는다. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="gc39496296816be4b516659b322e73d64"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_get_preedit_string" ref="gc39496296816be4b516659b322e73d64" args="(HangulInputContext *hic)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>* hangul_ic_get_preedit_string           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *&nbsp;</td>
+          <td class="paramname"> <em>hic</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+현재 상태의 preedit string을 구하는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>hic</em>&nbsp;</td><td>preedit string을 구하고자하는 입력 상태 object </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd>UCS4 preedit 스트링, 이 스트링은 <em>hic</em> 내부의 데이터이므로 수정하거나 free해서는 안된다.</dd></dl>
+이 함수는 <em>hic</em> 내부의 현재 상태의 preedit string을 리턴한다. 따라서 hic가 다른 키 이벤트를 처리하고 나면 그 내용이 바뀔 수 있다.<p>
+<dl class="remark" compact><dt><b>Remarks:</b></dt><dd>이 함수는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 상태를 변화 시키지 않는다. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="gf6a03d6bf05b58cc50ed10e2c7172a33"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_has_choseong" ref="gf6a03d6bf05b58cc50ed10e2c7172a33" args="(HangulInputContext *hic)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hangul_ic_has_choseong           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *&nbsp;</td>
+          <td class="paramname"> <em>hic</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 조합중인 초성을 가지고 있는지 확인하는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>hic</em>&nbsp;</td><td><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>를 가리키는 포인터</td></tr>
+  </table>
+</dl>
+<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 조합중인 글자가 초성이 있으면 true를 리턴한다.<p>
+<dl class="remark" compact><dt><b>Remarks:</b></dt><dd>이 함수는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 상태를 변화 시키지 않는다. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="gcef5c615ac50da4dc99f50934739c424"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_has_jongseong" ref="gcef5c615ac50da4dc99f50934739c424" args="(HangulInputContext *hic)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hangul_ic_has_jongseong           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *&nbsp;</td>
+          <td class="paramname"> <em>hic</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 조합중인 종성을 가지고 있는지 확인하는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>hic</em>&nbsp;</td><td><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>를 가리키는 포인터</td></tr>
+  </table>
+</dl>
+<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 조합중인 글자가 종성이 있으면 true를 리턴한다.<p>
+<dl class="remark" compact><dt><b>Remarks:</b></dt><dd>이 함수는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 상태를 변화 시키지 않는다. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="g4509b431ce3a9c8b2b74120ea5dde9b5"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_has_jungseong" ref="g4509b431ce3a9c8b2b74120ea5dde9b5" args="(HangulInputContext *hic)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hangul_ic_has_jungseong           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *&nbsp;</td>
+          <td class="paramname"> <em>hic</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 조합중인 중성을 가지고 있는지 확인하는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>hic</em>&nbsp;</td><td><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>를 가리키는 포인터</td></tr>
+  </table>
+</dl>
+<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 조합중인 글자가 중성이 있으면 true를 리턴한다.<p>
+<dl class="remark" compact><dt><b>Remarks:</b></dt><dd>이 함수는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 상태를 변화 시키지 않는다. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="g392305eaf52e31967719fc039b267956"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_is_empty" ref="g392305eaf52e31967719fc039b267956" args="(HangulInputContext *hic)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hangul_ic_is_empty           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *&nbsp;</td>
+          <td class="paramname"> <em>hic</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 조합중인 글자를 가지고 있는지 확인하는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>hic</em>&nbsp;</td><td><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>를 가리키는 포인터</td></tr>
+  </table>
+</dl>
+<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 조합중인 글자가 있으면 true를 리턴한다.<p>
+<dl class="remark" compact><dt><b>Remarks:</b></dt><dd>이 함수는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 상태를 변화 시키지 않는다. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="gc9e3230e98035854b806436d0569596e"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_is_transliteration" ref="gc9e3230e98035854b806436d0569596e" args="(HangulInputContext *hic)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hangul_ic_is_transliteration           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *&nbsp;</td>
+          <td class="paramname"> <em>hic</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+주어진 hic가 transliteration method인지 판별 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>hic</em>&nbsp;</td><td>상태를 알고자 하는 HangulInputContext 포인터 </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd>hic가 transliteration method인 경우 true를 리턴, 아니면 false</dd></dl>
+이 함수는 <em>hic</em> 가 transliteration method인지 판별하는 함수다. 이 함수가 false를 리턴할 경우에는 process 함수에 keycode를 넘기기 전에 키보드 자판 배열에 독립적인 값으로 변환한 후 넘겨야 한다. 그렇지 않으면 유럽어 자판과 한국어 자판을 같이 쓸때 한글 입력이 제대로 되지 않는다. 
+</div>
+</div><p>
+<a class="anchor" name="g323e53954c0fe5869ffc4cbcfc2be897"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_new" ref="g323e53954c0fe5869ffc4cbcfc2be897" args="(const char *keyboard)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>* hangul_ic_new           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>keyboard</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 오브젝트를 생성한다. 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>keyboard</em>&nbsp;</td><td>사용하고자 하는 키보드, 사용 가능한 값에 대해서는 <a class="el" href="group__hangulic.html#g7dd66ed8f04fe95ff401f2b29e10db1f" title="HangulInputContext의 자판 배열을 바꾸는 함수">hangul_ic_select_keyboard()</a> 함수 설명을 참조한다. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd>새로 생성된 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>에 대한 포인터</dd></dl>
+이 함수는 한글 조합 기능을 제공하는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 오브젝트를 생성한다. 생성할때 지정한 자판은 나중에 <a class="el" href="group__hangulic.html#g7dd66ed8f04fe95ff401f2b29e10db1f" title="HangulInputContext의 자판 배열을 바꾸는 함수">hangul_ic_select_keyboard()</a> 함수로 다른 자판으로 변경이 가능하다. 더이상 사용하지 않을 때에는 <a class="el" href="group__hangulic.html#g3f153cf60e726535ad175ebb894f584d" title="HangulInputContext를 삭제하는 함수">hangul_ic_delete()</a> 함수로 삭제해야 한다. 
+</div>
+</div><p>
+<a class="anchor" name="g26a39855a3fb03a1f794aca464ae132e"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_process" ref="g26a39855a3fb03a1f794aca464ae132e" args="(HangulInputContext *hic, int ascii)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hangul_ic_process           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *&nbsp;</td>
+          <td class="paramname"> <em>hic</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ascii</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+키 입력을 처리하여 실제로 한글 조합을 하는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>hic</em>&nbsp;</td><td><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 오브젝트 </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ascii</em>&nbsp;</td><td>키 이벤트 </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 이 키를 사용했으면 true, 사용하지 않았으면 false</dd></dl>
+ascii 값으로 주어진 키 이벤트를 받아서 내부의 한글 조합 상태를 변화시키고, preedit, commit 스트링을 저장한다.<p>
+libhangul의 키 이벤트 프로세스는 ASCII 코드 값을 기준으로 처리한다. 이 키 값은 US Qwerty 자판 배열에서의 키 값에 해당한다. 따라서 유럽어 자판을 사용하는 경우에는 해당 키의 ASCII 코드를 직접 전달하면 안되고, 그 키가 US Qwerty 자판이었을 경우에 발생할 수 있는 ASCII 코드 값을 주어야 한다. 또한 ASCII 코드 이므로 Shift 상태는 대문자로 전달이 된다. Capslock이 눌린 경우에는 대소문자를 뒤바꾸어 보내주지 않으면 마치 Shift가 눌린 것 처럼 동작할 수 있으므로 주의한다. preedit, commit 스트링은 <a class="el" href="group__hangulic.html#gc39496296816be4b516659b322e73d64" title="현재 상태의 preedit string을 구하는 함수">hangul_ic_get_preedit_string()</a>, <a class="el" href="group__hangulic.html#gbe09f347ac91563b4dd45f93c5bd9a03" title="현재 상태의 commit string을 구하는 함수">hangul_ic_get_commit_string()</a> 함수를 이용하여 구할 수 있다.<p>
+이 함수의 사용법에 대한 설명은 <a class="el" href="group__hangulic.html#hangulicusage">Hangul Input Context의 사용법</a> 부분을 참조한다.<p>
+<dl class="remark" compact><dt><b>Remarks:</b></dt><dd>이 함수는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 상태를 변화 시킨다. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="g2fa2f5972adbdacd38e1edf62ff9fc53"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_reset" ref="g2fa2f5972adbdacd38e1edf62ff9fc53" args="(HangulInputContext *hic)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hangul_ic_reset           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *&nbsp;</td>
+          <td class="paramname"> <em>hic</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>를 초기상태로 되돌리는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>hic</em>&nbsp;</td><td><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>를 가리키는 포인터</td></tr>
+  </table>
+</dl>
+이 함수는 <em>hic가</em> 가리키는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 상태를 처음 상태로 되돌린다. preedit 스트링, commit 스트링, flush 스트링이 없어지고, 입력되었던 키에 대한 기록이 없어진다. 영어 상태로 바뀌는 것이 아니다.<p>
+비교: <a class="el" href="group__hangulic.html#g40e3e40e46d1554a6e2e85280396a6b5" title="HangulInputContext의 입력 상태를 완료하는 함수">hangul_ic_flush()</a><p>
+<dl class="remark" compact><dt><b>Remarks:</b></dt><dd>이 함수는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 상태를 변화 시킨다. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="g7dd66ed8f04fe95ff401f2b29e10db1f"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_select_keyboard" ref="g7dd66ed8f04fe95ff401f2b29e10db1f" args="(HangulInputContext *hic, const char *id)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hangul_ic_select_keyboard           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *&nbsp;</td>
+          <td class="paramname"> <em>hic</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>id</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 자판 배열을 바꾸는 함수 
+<p>
+<dl compact><dt><b>매개변수:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>hic</em>&nbsp;</td><td><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 오브젝트 </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>id</em>&nbsp;</td><td>선택하고자 하는 자판, 아래와 같은 값을 선택할 수 있다. <ul>
+<li>"2" 두벌식 자판 </li>
+<li>"32" 세벌식 자판으로 두벌식의 배열을 가진 자판. 두벌식 사용자가 쉽게 세벌식 테스트를 할 수 있다. shift를 누르면 자음이 종성으로 동작한다. </li>
+<li>"3f" 세벌식 최종 </li>
+<li>"39" 세벌식 390 </li>
+<li>"3s" 세벌식 순아래 </li>
+<li>"3y" 세벌식 옛글 </li>
+<li>"ro" 로마자 방식 자판 </li>
+</ul>
+</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>반환값:</b></dt><dd>없음</dd></dl>
+이 함수는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 자판을 <em>id로</em> 지정된 것으로 변경한다.<p>
+<dl class="remark" compact><dt><b>Remarks:</b></dt><dd>이 함수는 <a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 내부 조합 상태에는 영향을 미치지 않는다. 따라서 입력 중간에 자판을 변경하더라도 조합 상태는 유지된다. </dd></dl>
+
+</div>
+</div><p>
+<hr size="1"><address style="text-align: right;"><small>생성시간 : Wed Nov 23 23:31:45 2011, 프로젝트명 : libhangul, 생성자 : &nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.3-20071008 </small></address>
+</body>
+</html>
