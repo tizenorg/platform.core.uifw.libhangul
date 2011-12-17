@@ -1,151 +1,173 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <title>libhangul: hangulinputcontext.c 파일 참조</title>
-<link href="doxygen.css" rel="stylesheet" type="text/css">
-<link href="tabs.css" rel="stylesheet" type="text/css">
-</head><body>
-<!-- 다음에 의해 생성됨 :  Doxygen 1.5.3-20071008 -->
-<div class="tabs">
-  <ul>
-    <li><a href="index.html"><span>메인&nbsp;페이지</span></a></li>
-    <li><a href="modules.html"><span>모듈</span></a></li>
-    <li class="current"><a href="files.html"><span>파일들</span></a></li>
-    <li><a href="dirs.html"><span>디렉토리</span></a></li>
-    <li><a href="pages.html"><span>관련된&nbsp;페이지</span></a></li>
-  </ul>
-</div>
-<div class="nav">
-<a class="el" href="dir_74e344cbec9860085ddf79a94754a2b6.html">hangul</a></div>
-<h1>hangulinputcontext.c 파일 참조</h1><code>#include &lt;stdlib.h&gt;</code><br>
-<code>#include &lt;string.h&gt;</code><br>
-<code>#include &lt;ctype.h&gt;</code><br>
-<code>#include &lt;inttypes.h&gt;</code><br>
-<code>#include &lt;limits.h&gt;</code><br>
-<code>#include &quot;hangul-gettext.h&quot;</code><br>
-<code>#include &quot;hangul.h&quot;</code><br>
-<code>#include &quot;hangulinternals.h&quot;</code><br>
-<code>#include &quot;hangulkeyboard.h&quot;</code><br>
-<table border="0" cellpadding="0" cellspacing="0">
-<tr><td></td></tr>
-<tr><td colspan="2"><br><h2>매크로</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="a8cecfc5c5c054d2875c03e77b7be15d"></a><!-- doxytag: member="hangulinputcontext.c::TRUE" ref="a8cecfc5c5c054d2875c03e77b7be15d" args="" -->
-#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>TRUE</b>&nbsp;&nbsp;&nbsp;1</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="a93f0eb578d23995850d61f7d61c55c1"></a><!-- doxytag: member="hangulinputcontext.c::FALSE" ref="a93f0eb578d23995850d61f7d61c55c1" args="" -->
-#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>FALSE</b>&nbsp;&nbsp;&nbsp;0</td></tr>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="dcaecd327afc5ecbf29b2ef3e7c17a35"></a><!-- doxytag: member="hangulinputcontext.c::HANGUL_KEYBOARD_TABLE_SIZE" ref="dcaecd327afc5ecbf29b2ef3e7c17a35" args="" -->
-#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>HANGUL_KEYBOARD_TABLE_SIZE</b>&nbsp;&nbsp;&nbsp;0x80</td></tr>
 
-<tr><td colspan="2"><br><h2>타입정의</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="4f665d7dbfcf5fe0b6909aa72f9bf980"></a><!-- doxytag: member="hangulinputcontext.c::HangulOnTranslate" ref="4f665d7dbfcf5fe0b6909aa72f9bf980" args=")(HangulInputContext *, int, ucschar *, void *)" -->
-typedef void(*&nbsp;</td><td class="memItemRight" valign="bottom"><b>HangulOnTranslate</b> )(<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *, int, <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *, void *)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="8e20d78d6896462d048460ad37349824"></a><!-- doxytag: member="hangulinputcontext.c::HangulOnTransition" ref="8e20d78d6896462d048460ad37349824" args=")(HangulInputContext *, ucschar, const ucschar *, void *)" -->
-typedef bool(*&nbsp;</td><td class="memItemRight" valign="bottom"><b>HangulOnTransition</b> )(<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *, <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>, const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *, void *)</td></tr>
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="fc7d7725c2a82c5e2ab8512c01af7d3f"></a><!-- doxytag: member="hangulinputcontext.c::HangulCombinationItem" ref="fc7d7725c2a82c5e2ab8512c01af7d3f" args="" -->
-typedef struct <br>
-_HangulCombinationItem&nbsp;</td><td class="memItemRight" valign="bottom"><b>HangulCombinationItem</b></td></tr>
 
-<tr><td colspan="2"><br><h2>함수</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="a1e31f577769f6d72f7c61afbd93264e"></a><!-- doxytag: member="hangulinputcontext.c::hangul_keyboard_new" ref="a1e31f577769f6d72f7c61afbd93264e" args="()" -->
-HangulKeyboard *&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_keyboard_new</b> ()</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="79eafff8267f318ef85dc9fd3a375bfc"></a><!-- doxytag: member="hangulinputcontext.c::hangul_keyboard_set_value" ref="79eafff8267f318ef85dc9fd3a375bfc" args="(HangulKeyboard *keyboard, int key, ucschar value)" -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_keyboard_set_value</b> (HangulKeyboard *keyboard, int key, <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> value)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="1bf5c8c293778d361ffa864df2caffe8"></a><!-- doxytag: member="hangulinputcontext.c::hangul_keyboard_set_type" ref="1bf5c8c293778d361ffa864df2caffe8" args="(HangulKeyboard *keyboard, int type)" -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_keyboard_set_type</b> (HangulKeyboard *keyboard, int type)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="f0656bbcc61e45427e1a7e06f7105cc2"></a><!-- doxytag: member="hangulinputcontext.c::hangul_keyboard_delete" ref="f0656bbcc61e45427e1a7e06f7105cc2" args="(HangulKeyboard *keyboard)" -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_keyboard_delete</b> (HangulKeyboard *keyboard)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="35027ede291c32b782b9cebecabe63c8"></a><!-- doxytag: member="hangulinputcontext.c::hangul_combination_new" ref="35027ede291c32b782b9cebecabe63c8" args="()" -->
-HangulCombination *&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_combination_new</b> ()</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="f15e7f6ea9795177cd87c5bf69a8216c"></a><!-- doxytag: member="hangulinputcontext.c::hangul_combination_delete" ref="f15e7f6ea9795177cd87c5bf69a8216c" args="(HangulCombination *combination)" -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_combination_delete</b> (HangulCombination *combination)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="0edecc23e68405d7efc4098d44788846"></a><!-- doxytag: member="hangulinputcontext.c::hangul_combination_set_data" ref="0edecc23e68405d7efc4098d44788846" args="(HangulCombination *combination, ucschar *first, ucschar *second, ucschar *result, unsigned int n)" -->
-bool&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_combination_set_data</b> (HangulCombination *combination, <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *first, <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *second, <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *result, unsigned int n)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="f336dd69633d36b11aa97d24864b6080"></a><!-- doxytag: member="hangulinputcontext.c::hangul_combination_combine" ref="f336dd69633d36b11aa97d24864b6080" args="(const HangulCombination *combination, ucschar first, ucschar second)" -->
-<a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a>&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_combination_combine</b> (const HangulCombination *combination, <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> first, <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> second)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g26a39855a3fb03a1f794aca464ae132e">hangul_ic_process</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, int ascii)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">키 입력을 처리하여 실제로 한글 조합을 하는 함수  <a href="group__hangulic.html#g26a39855a3fb03a1f794aca464ae132e"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#gc39496296816be4b516659b322e73d64">hangul_ic_get_preedit_string</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">현재 상태의 preedit string을 구하는 함수  <a href="group__hangulic.html#gc39496296816be4b516659b322e73d64"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#gbe09f347ac91563b4dd45f93c5bd9a03">hangul_ic_get_commit_string</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">현재 상태의 commit string을 구하는 함수  <a href="group__hangulic.html#gbe09f347ac91563b4dd45f93c5bd9a03"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g2fa2f5972adbdacd38e1edf62ff9fc53">hangul_ic_reset</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>를 초기상태로 되돌리는 함수  <a href="group__hangulic.html#g2fa2f5972adbdacd38e1edf62ff9fc53"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="group__hangulctype.html#g2c1a56543786ad0dcce173493019448c">ucschar</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g40e3e40e46d1554a6e2e85280396a6b5">hangul_ic_flush</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 입력 상태를 완료하는 함수  <a href="group__hangulic.html#g40e3e40e46d1554a6e2e85280396a6b5"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g8d886ba7f2e3adb1fbc8c00d58b825b3">hangul_ic_backspace</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 backspace 키를 처리하도록 하는 함수  <a href="group__hangulic.html#g8d886ba7f2e3adb1fbc8c00d58b825b3"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g392305eaf52e31967719fc039b267956">hangul_ic_is_empty</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 조합중인 글자를 가지고 있는지 확인하는 함수  <a href="group__hangulic.html#g392305eaf52e31967719fc039b267956"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#gf6a03d6bf05b58cc50ed10e2c7172a33">hangul_ic_has_choseong</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 조합중인 초성을 가지고 있는지 확인하는 함수  <a href="group__hangulic.html#gf6a03d6bf05b58cc50ed10e2c7172a33"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g4509b431ce3a9c8b2b74120ea5dde9b5">hangul_ic_has_jungseong</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 조합중인 중성을 가지고 있는지 확인하는 함수  <a href="group__hangulic.html#g4509b431ce3a9c8b2b74120ea5dde9b5"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#gcef5c615ac50da4dc99f50934739c424">hangul_ic_has_jongseong</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>가 조합중인 종성을 가지고 있는지 확인하는 함수  <a href="group__hangulic.html#gcef5c615ac50da4dc99f50934739c424"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="7962e0c8664cb68c7ae3225a3aeec435"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_set_output_mode" ref="7962e0c8664cb68c7ae3225a3aeec435" args="(HangulInputContext *hic, int mode)" -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_set_output_mode</b> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, int mode)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="67b85826fb91109744478394f0ddc83b"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_connect_translate" ref="67b85826fb91109744478394f0ddc83b" args="(HangulInputContext *hic, HangulOnTranslate callback, void *user_data)" -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_connect_translate</b> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, HangulOnTranslate callback, void *user_data)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="10ca098afd5ec326a27cf83c29b23ec2"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_connect_transition" ref="10ca098afd5ec326a27cf83c29b23ec2" args="(HangulInputContext *hic, HangulOnTransition callback, void *user_data)" -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_connect_transition</b> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, HangulOnTransition callback, void *user_data)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="67ce78abf5c3770bf32f3573c0a286d7"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_connect_callback" ref="67ce78abf5c3770bf32f3573c0a286d7" args="(HangulInputContext *hic, const char *event, void *callback, void *user_data)" -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_connect_callback</b> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, const char *event, void *callback, void *user_data)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="844132d3ee5f32ada864b08ebd51c5cb"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_set_keyboard" ref="844132d3ee5f32ada864b08ebd51c5cb" args="(HangulInputContext *hic, const HangulKeyboard *keyboard)" -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_set_keyboard</b> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, const HangulKeyboard *keyboard)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g7dd66ed8f04fe95ff401f2b29e10db1f">hangul_ic_select_keyboard</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, const char *id)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>의 자판 배열을 바꾸는 함수  <a href="group__hangulic.html#g7dd66ed8f04fe95ff401f2b29e10db1f"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="b55e720da4a2e58093c047b6455dac65"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_set_combination" ref="b55e720da4a2e58093c047b6455dac65" args="(HangulInputContext *hic, const HangulCombination *combination)" -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_set_combination</b> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, const HangulCombination *combination)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g323e53954c0fe5869ffc4cbcfc2be897">hangul_ic_new</a> (const char *keyboard)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 오브젝트를 생성한다.  <a href="group__hangulic.html#g323e53954c0fe5869ffc4cbcfc2be897"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#g3f153cf60e726535ad175ebb894f584d">hangul_ic_delete</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a>를 삭제하는 함수  <a href="group__hangulic.html#g3f153cf60e726535ad175ebb894f584d"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="5d47f1e2719d4b2da567fbd5e4c2358f"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_get_n_keyboards" ref="5d47f1e2719d4b2da567fbd5e4c2358f" args="()" -->
-unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_get_n_keyboards</b> ()</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="a4483f1201eb7c65721a55cf115f3f37"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_get_keyboard_id" ref="a4483f1201eb7c65721a55cf115f3f37" args="(unsigned index_)" -->
-const char *&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_get_keyboard_id</b> (unsigned index_)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="3f2b7753d6274dc938390406fa39c2d9"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_get_keyboard_name" ref="3f2b7753d6274dc938390406fa39c2d9" args="(unsigned index_)" -->
-const char *&nbsp;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_get_keyboard_name</b> (unsigned index_)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#gc9e3230e98035854b806436d0569596e">hangul_ic_is_transliteration</a> (<a class="el" href="group__hangulic.html#g623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">주어진 hic가 transliteration method인지 판별  <a href="group__hangulic.html#gc9e3230e98035854b806436d0569596e"></a><br></td></tr>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">libhangul
+   &#160;<span id="projectnumber">Version 0.1.0</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
 </table>
-<hr><a name="_details"></a><h2>상세한 설명</h2>
-<hr size="1"><address style="text-align: right;"><small>생성시간 : Wed Nov 23 23:31:45 2011, 프로젝트명 : libhangul, 생성자 : &nbsp;
-<a href="http://www.doxygen.org/index.html">
-<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.3-20071008 </small></address>
+</div>
+
+<!-- 다음에 의해 생성됨 :  Doxygen 1.7.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>메인&#160;페이지</span></a></li>
+      <li><a href="pages.html"><span>관련된&#160;페이지</span></a></li>
+      <li><a href="modules.html"><span>모듈</span></a></li>
+      <li class="current"><a href="files.html"><span>파일들</span></a></li>
+      <li><a href="dirs.html"><span>디렉토리</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>파일&#160;목록</span></a></li>
+      <li><a href="globals.html"><span>전역</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="dir_74e344cbec9860085ddf79a94754a2b6.html">hangul</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#define-members">매크로</a> &#124;
+<a href="#typedef-members">타입정의</a> &#124;
+<a href="#func-members">함수</a>  </div>
+  <div class="headertitle">
+<div class="title">hangulinputcontext.c 파일 참조</div>  </div>
+</div>
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br/>
+<code>#include &lt;string.h&gt;</code><br/>
+<code>#include &lt;ctype.h&gt;</code><br/>
+<code>#include &lt;inttypes.h&gt;</code><br/>
+<code>#include &lt;limits.h&gt;</code><br/>
+<code>#include &quot;hangul-gettext.h&quot;</code><br/>
+<code>#include &quot;hangul.h&quot;</code><br/>
+<code>#include &quot;hangulinternals.h&quot;</code><br/>
+<code>#include &quot;hangulkeyboard.h&quot;</code><br/>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h2><a name="define-members"></a>
+매크로</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8cecfc5c5c054d2875c03e77b7be15d"></a><!-- doxytag: member="hangulinputcontext.c::TRUE" ref="aa8cecfc5c5c054d2875c03e77b7be15d" args="" -->
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TRUE</b>&#160;&#160;&#160;1</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa93f0eb578d23995850d61f7d61c55c1"></a><!-- doxytag: member="hangulinputcontext.c::FALSE" ref="aa93f0eb578d23995850d61f7d61c55c1" args="" -->
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FALSE</b>&#160;&#160;&#160;0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adcaecd327afc5ecbf29b2ef3e7c17a35"></a><!-- doxytag: member="hangulinputcontext.c::HANGUL_KEYBOARD_TABLE_SIZE" ref="adcaecd327afc5ecbf29b2ef3e7c17a35" args="" -->
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HANGUL_KEYBOARD_TABLE_SIZE</b>&#160;&#160;&#160;0x80</td></tr>
+<tr><td colspan="2"><h2><a name="typedef-members"></a>
+타입정의</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f665d7dbfcf5fe0b6909aa72f9bf980"></a><!-- doxytag: member="hangulinputcontext.c::HangulOnTranslate" ref="a4f665d7dbfcf5fe0b6909aa72f9bf980" args=")(HangulInputContext *, int, ucschar *, void *)" -->
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>HangulOnTranslate</b> )(<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *, int, <a class="el" href="group__hangulctype.html#ga2c1a56543786ad0dcce173493019448c">ucschar</a> *, void *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e20d78d6896462d048460ad37349824"></a><!-- doxytag: member="hangulinputcontext.c::HangulOnTransition" ref="a8e20d78d6896462d048460ad37349824" args=")(HangulInputContext *, ucschar, const ucschar *, void *)" -->
+typedef bool(*&#160;</td><td class="memItemRight" valign="bottom"><b>HangulOnTransition</b> )(<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *, <a class="el" href="group__hangulctype.html#ga2c1a56543786ad0dcce173493019448c">ucschar</a>, const <a class="el" href="group__hangulctype.html#ga2c1a56543786ad0dcce173493019448c">ucschar</a> *, void *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc7d7725c2a82c5e2ab8512c01af7d3f"></a><!-- doxytag: member="hangulinputcontext.c::HangulCombinationItem" ref="afc7d7725c2a82c5e2ab8512c01af7d3f" args="" -->
+typedef struct <br class="typebreak"/>
+_HangulCombinationItem&#160;</td><td class="memItemRight" valign="bottom"><b>HangulCombinationItem</b></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+함수</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1e31f577769f6d72f7c61afbd93264e"></a><!-- doxytag: member="hangulinputcontext.c::hangul_keyboard_new" ref="aa1e31f577769f6d72f7c61afbd93264e" args="()" -->
+HangulKeyboard *&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_keyboard_new</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79eafff8267f318ef85dc9fd3a375bfc"></a><!-- doxytag: member="hangulinputcontext.c::hangul_keyboard_set_value" ref="a79eafff8267f318ef85dc9fd3a375bfc" args="(HangulKeyboard *keyboard, int key, ucschar value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_keyboard_set_value</b> (HangulKeyboard *keyboard, int key, <a class="el" href="group__hangulctype.html#ga2c1a56543786ad0dcce173493019448c">ucschar</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1bf5c8c293778d361ffa864df2caffe8"></a><!-- doxytag: member="hangulinputcontext.c::hangul_keyboard_set_type" ref="a1bf5c8c293778d361ffa864df2caffe8" args="(HangulKeyboard *keyboard, int type)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_keyboard_set_type</b> (HangulKeyboard *keyboard, int type)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af0656bbcc61e45427e1a7e06f7105cc2"></a><!-- doxytag: member="hangulinputcontext.c::hangul_keyboard_delete" ref="af0656bbcc61e45427e1a7e06f7105cc2" args="(HangulKeyboard *keyboard)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_keyboard_delete</b> (HangulKeyboard *keyboard)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35027ede291c32b782b9cebecabe63c8"></a><!-- doxytag: member="hangulinputcontext.c::hangul_combination_new" ref="a35027ede291c32b782b9cebecabe63c8" args="()" -->
+HangulCombination *&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_combination_new</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af15e7f6ea9795177cd87c5bf69a8216c"></a><!-- doxytag: member="hangulinputcontext.c::hangul_combination_delete" ref="af15e7f6ea9795177cd87c5bf69a8216c" args="(HangulCombination *combination)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_combination_delete</b> (HangulCombination *combination)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0edecc23e68405d7efc4098d44788846"></a><!-- doxytag: member="hangulinputcontext.c::hangul_combination_set_data" ref="a0edecc23e68405d7efc4098d44788846" args="(HangulCombination *combination, ucschar *first, ucschar *second, ucschar *result, unsigned int n)" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_combination_set_data</b> (HangulCombination *combination, <a class="el" href="group__hangulctype.html#ga2c1a56543786ad0dcce173493019448c">ucschar</a> *first, <a class="el" href="group__hangulctype.html#ga2c1a56543786ad0dcce173493019448c">ucschar</a> *second, <a class="el" href="group__hangulctype.html#ga2c1a56543786ad0dcce173493019448c">ucschar</a> *result, unsigned int n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af336dd69633d36b11aa97d24864b6080"></a><!-- doxytag: member="hangulinputcontext.c::hangul_combination_combine" ref="af336dd69633d36b11aa97d24864b6080" args="(const HangulCombination *combination, ucschar first, ucschar second)" -->
+<a class="el" href="group__hangulctype.html#ga2c1a56543786ad0dcce173493019448c">ucschar</a>&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_combination_combine</b> (const HangulCombination *combination, <a class="el" href="group__hangulctype.html#ga2c1a56543786ad0dcce173493019448c">ucschar</a> first, <a class="el" href="group__hangulctype.html#ga2c1a56543786ad0dcce173493019448c">ucschar</a> second)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#ga26a39855a3fb03a1f794aca464ae132e">hangul_ic_process</a> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, int ascii)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">키 입력을 처리하여 실제로 한글 조합을 하는 함수  <a href="group__hangulic.html#ga26a39855a3fb03a1f794aca464ae132e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group__hangulctype.html#ga2c1a56543786ad0dcce173493019448c">ucschar</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#gac39496296816be4b516659b322e73d64">hangul_ic_get_preedit_string</a> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">현재 상태의 preedit string을 구하는 함수  <a href="group__hangulic.html#gac39496296816be4b516659b322e73d64"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group__hangulctype.html#ga2c1a56543786ad0dcce173493019448c">ucschar</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#gabe09f347ac91563b4dd45f93c5bd9a03">hangul_ic_get_commit_string</a> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">현재 상태의 commit string을 구하는 함수  <a href="group__hangulic.html#gabe09f347ac91563b4dd45f93c5bd9a03"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#ga2fa2f5972adbdacd38e1edf62ff9fc53">hangul_ic_reset</a> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 를 초기상태로 되돌리는 함수  <a href="group__hangulic.html#ga2fa2f5972adbdacd38e1edf62ff9fc53"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group__hangulctype.html#ga2c1a56543786ad0dcce173493019448c">ucschar</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#ga40e3e40e46d1554a6e2e85280396a6b5">hangul_ic_flush</a> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 의 입력 상태를 완료하는 함수  <a href="group__hangulic.html#ga40e3e40e46d1554a6e2e85280396a6b5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#ga8d886ba7f2e3adb1fbc8c00d58b825b3">hangul_ic_backspace</a> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 가 backspace 키를 처리하도록 하는 함수  <a href="group__hangulic.html#ga8d886ba7f2e3adb1fbc8c00d58b825b3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#ga392305eaf52e31967719fc039b267956">hangul_ic_is_empty</a> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 가 조합중인 글자를 가지고 있는지 확인하는 함수  <a href="group__hangulic.html#ga392305eaf52e31967719fc039b267956"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#gaf6a03d6bf05b58cc50ed10e2c7172a33">hangul_ic_has_choseong</a> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 가 조합중인 초성을 가지고 있는지 확인하는 함수  <a href="group__hangulic.html#gaf6a03d6bf05b58cc50ed10e2c7172a33"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#ga4509b431ce3a9c8b2b74120ea5dde9b5">hangul_ic_has_jungseong</a> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 가 조합중인 중성을 가지고 있는지 확인하는 함수  <a href="group__hangulic.html#ga4509b431ce3a9c8b2b74120ea5dde9b5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#gacef5c615ac50da4dc99f50934739c424">hangul_ic_has_jongseong</a> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 가 조합중인 종성을 가지고 있는지 확인하는 함수  <a href="group__hangulic.html#gacef5c615ac50da4dc99f50934739c424"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7962e0c8664cb68c7ae3225a3aeec435"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_set_output_mode" ref="a7962e0c8664cb68c7ae3225a3aeec435" args="(HangulInputContext *hic, int mode)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_set_output_mode</b> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, int mode)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67b85826fb91109744478394f0ddc83b"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_connect_translate" ref="a67b85826fb91109744478394f0ddc83b" args="(HangulInputContext *hic, HangulOnTranslate callback, void *user_data)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_connect_translate</b> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, HangulOnTranslate callback, void *user_data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10ca098afd5ec326a27cf83c29b23ec2"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_connect_transition" ref="a10ca098afd5ec326a27cf83c29b23ec2" args="(HangulInputContext *hic, HangulOnTransition callback, void *user_data)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_connect_transition</b> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, HangulOnTransition callback, void *user_data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67ce78abf5c3770bf32f3573c0a286d7"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_connect_callback" ref="a67ce78abf5c3770bf32f3573c0a286d7" args="(HangulInputContext *hic, const char *event, void *callback, void *user_data)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_connect_callback</b> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, const char *event, void *callback, void *user_data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a844132d3ee5f32ada864b08ebd51c5cb"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_set_keyboard" ref="a844132d3ee5f32ada864b08ebd51c5cb" args="(HangulInputContext *hic, const HangulKeyboard *keyboard)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_set_keyboard</b> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, const HangulKeyboard *keyboard)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#ga7dd66ed8f04fe95ff401f2b29e10db1f">hangul_ic_select_keyboard</a> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, const char *id)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 의 자판 배열을 바꾸는 함수  <a href="group__hangulic.html#ga7dd66ed8f04fe95ff401f2b29e10db1f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab55e720da4a2e58093c047b6455dac65"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_set_combination" ref="ab55e720da4a2e58093c047b6455dac65" args="(HangulInputContext *hic, const HangulCombination *combination)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_set_combination</b> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic, const HangulCombination *combination)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#ga323e53954c0fe5869ffc4cbcfc2be897">hangul_ic_new</a> (const char *keyboard)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 오브젝트를 생성한다.  <a href="group__hangulic.html#ga323e53954c0fe5869ffc4cbcfc2be897"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#ga3f153cf60e726535ad175ebb894f584d">hangul_ic_delete</a> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> 를 삭제하는 함수  <a href="group__hangulic.html#ga3f153cf60e726535ad175ebb894f584d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d47f1e2719d4b2da567fbd5e4c2358f"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_get_n_keyboards" ref="a5d47f1e2719d4b2da567fbd5e4c2358f" args="()" -->
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_get_n_keyboards</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa4483f1201eb7c65721a55cf115f3f37"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_get_keyboard_id" ref="aa4483f1201eb7c65721a55cf115f3f37" args="(unsigned index_)" -->
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_get_keyboard_id</b> (unsigned index_)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f2b7753d6274dc938390406fa39c2d9"></a><!-- doxytag: member="hangulinputcontext.c::hangul_ic_get_keyboard_name" ref="a3f2b7753d6274dc938390406fa39c2d9" args="(unsigned index_)" -->
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>hangul_ic_get_keyboard_name</b> (unsigned index_)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hangulic.html#gac9e3230e98035854b806436d0569596e">hangul_ic_is_transliteration</a> (<a class="el" href="group__hangulic.html#ga623ec57b85ebf33279989f3e6bc2d59a">HangulInputContext</a> *hic)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">주어진 hic가 transliteration method인지 판별  <a href="group__hangulic.html#gac9e3230e98035854b806436d0569596e"></a><br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>상세한 설명</h2>
+<div class="textblock"></div></div>
+</div>
+
+
+<hr class="footer"/><address class="footer"><small>
+생성시간 : 토 12월 17 2011 16:43:33, 프로젝트명 : libhangul, 생성자 :  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6
+</small></address>
+
 </body>
 </html>
