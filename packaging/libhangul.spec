@@ -1,9 +1,10 @@
+#sbs-git:slp/pkgs/l/libhangul libhangul 2.1.10 ff69a9eb13c322873f2fc93818273bea67f7862e
 # >> macros
 # << macros
 
 Name:       libhangul
 Summary:    Hangul keyboard input library
-Version:    2.1.10
+Version: 2.1.10
 Release:    2
 Group:      System/Libraries
 License:    TBD
