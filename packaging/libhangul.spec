@@ -1,13 +1,9 @@
-#sbs-git:slp/pkgs/l/libhangul libhangul 2.1.10 ff69a9eb13c322873f2fc93818273bea67f7862e
-# >> macros
-# << macros
-
 Name:       libhangul
 Summary:    Hangul keyboard input library
-Version: 2.1.10
+Version:    2.1.10
 Release:    2
-Group:      System/Libraries
-License:    TBD
+Group:      System Environment/Libraries
+License:    LGPL
 Source0:    %{name}-%{version}.tar.bz2
 Requires(post):  /sbin/ldconfig
 Requires(postun):  /sbin/ldconfig
@@ -20,7 +16,7 @@ This package contains the shared library and the runtime data.
 
 %package data
 Summary:    Hangul keyboard input library - data
-Group:      System/Libraries
+Group:      System Environment/Libraries
 Requires:   %{name} = %{version}-%{release}
 
 %description data
@@ -39,32 +35,21 @@ This package contains the header files and the static library.
 %prep
 %setup -q -n %{name}-%{version}
 
-# >> setup
-# << setup
 
 %build
-# >> build pre
-# << build pre
-
 %reconfigure --disable-static
 
 # Call make instruction with smp support
 make %{?jobs:-j%jobs}
 
-# >> build post
-# << build post
+
 %install
 rm -rf %{buildroot}
-# >> install pre
-# << install pre
 %make_install
 
-# >> install post
-# << install post
 
 %clean
 rm -rf %{buildroot}
-
 
 
 %post -p /sbin/ldconfig
@@ -72,25 +57,18 @@ rm -rf %{buildroot}
 %postun -p /sbin/ldconfig
 
 
-
 %files
 %defattr(-,root,root,-)
-# >> files
 %{_libdir}/lib*.so*
-# << files
 
 
 %files data
 %defattr(-,root,root,-)
-# >> files
 %{_datadir}/libhangul/*
-# << files
 
 
 %files devel
 %defattr(-,root,root,-)
-# >> files devel
 %{_includedir}/hangul-1.0/*.h
 %{_libdir}/pkgconfig/*.pc
-# << files devel
 
