@@ -1,3 +1,28 @@
+0.1.0
+ * add new API for keycode normalization
+ * remove deprecated API
+ * add supports for freebsd
+ * update some test codes
+
+0.0.12
+ * add dubeolsik yetgeul keyboard
+ * make sebeolsik yetgeul keyboard layout conform to HWP
+ * add API to get builtin keyboard list
+ * use Unicode jamo for incomplete syllable
+ * gettextize
+ * bug fix for Unicode 5.2
+ * fix wrong characters in ahnmatae(#31548)
+ * add command line tool hangul
+
+0.0.11
+ * fixed preedit string bug: #315256
+ * added Ahnmatae method
+ * updated hanja frequency data and reordered hanja table according to it:
+   #315200
+ * fixed bugs in hanja data
+ * updated old hangul jamo combination table according to Unicode standard 5.2:
+   #315127
+
 0.0.10
  * implemented new logic romaja method
  * updated to support the new Unicode standard 5.2

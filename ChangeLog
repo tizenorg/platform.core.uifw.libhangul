@@ -1,4 +1,557 @@
 ------------------------------------------------------------------------
+r271 | krisna | 2011-10-17 00:03:13 +0900 (Mon, 17 Oct 2011) | 4 lines
+Changed paths:
+   M /libhangul/trunk/configure.ac
+
+잘못 관리한 library version을 바로 잡음
+
+지금은 1.0.0 이 되어야 한다.
+
+------------------------------------------------------------------------
+r270 | krisna | 2011-10-16 20:53:51 +0900 (Sun, 16 Oct 2011) | 2 lines
+Changed paths:
+   M /libhangul/trunk/configure.ac
+
+release 0.1.0
+
+------------------------------------------------------------------------
+r269 | krisna | 2011-10-16 20:53:22 +0900 (Sun, 16 Oct 2011) | 2 lines
+Changed paths:
+   M /libhangul/trunk/NEWS
+
+Update documents
+
+------------------------------------------------------------------------
+r268 | krisna | 2011-10-16 20:50:58 +0900 (Sun, 16 Oct 2011) | 2 lines
+Changed paths:
+   M /libhangul/trunk/po/ko.po
+
+update po files
+
+------------------------------------------------------------------------
+r267 | krisna | 2011-09-07 23:43:20 +0900 (Wed, 07 Sep 2011) | 4 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangul.h
+   M /libhangul/trunk/hangul/hangulctype.c
+   M /libhangul/trunk/hangul/hangulinputcontext.c
+
+deprecated 함수 제거
+
+다음 릴리스에서는 library version을 올릴 것이다.
+
+------------------------------------------------------------------------
+r266 | krisna | 2011-09-03 15:48:24 +0900 (Sat, 03 Sep 2011) | 5 lines
+Changed paths:
+   M /libhangul/trunk/configure.ac
+
+gettext 호환 version을 0.18로 업데이트
+
+이하 버전에서는 MKINSTALLDIR 관련 에러가 난다.
+0.18 이하를 사용하는 사람이 별로 없길 바란다.
+
+------------------------------------------------------------------------
+r265 | krisna | 2011-08-28 23:05:03 +0900 (Sun, 28 Aug 2011) | 5 lines
+Changed paths:
+   M /libhangul/trunk/test/Makefile.am
+   M /libhangul/trunk/test/test.c
+
+test 코드에서 속편하게 wchar_t로 비교
+
+wchar_t 내용이 UCS-4라고 가정해서는 안되지만, GCC를 사용하는 경우에
+한해서 사용이 쉬우므로 이렇게 수정한다.
+
+------------------------------------------------------------------------
+r264 | krisna | 2011-08-28 22:15:44 +0900 (Sun, 28 Aug 2011) | 5 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangul.h
+   M /libhangul/trunk/hangul/hangulinputcontext.c
+
+hangul_ic_is_transliteration() 함수 추가
+
+이 함수는 hangul_ic_process()에 키코드를 넘기기 전에
+normalize 과정에 필요한지 판단해주는 함수다.
+
+------------------------------------------------------------------------
+r263 | krisna | 2011-08-16 17:22:49 +0900 (Tue, 16 Aug 2011) | 5 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulinputcontext.c
+
+Combination table을 IC에서 Keyboard로 옮김
+
+Combination table은 keyboard에 종속적인 정보이므로 HangulKeyboard에서
+참조하는 것이 바람직하다.
+
+------------------------------------------------------------------------
+r262 | krisna | 2011-07-18 23:30:24 +0900 (Mon, 18 Jul 2011) | 4 lines
+Changed paths:
+   M /libhangul/trunk/configure.ac
+   M /libhangul/trunk/test/Makefile.am
+   M /libhangul/trunk/test/hangul.c
+   M /libhangul/trunk/tools/Makefile.am
+   M /libhangul/trunk/tools/hangul.c
+
+AM_ICONV 매크로 사용
+
+freebsd에서 컴파일 오류가 발생하는 것을 막기 위한 것
+
+------------------------------------------------------------------------
+r261 | krisna | 2011-07-18 00:34:11 +0900 (Mon, 18 Jul 2011) | 5 lines
+Changed paths:
+   M /libhangul/trunk/libhangul.pc.in
+   M /libhangul/trunk/test/Makefile.am
+   M /libhangul/trunk/tools/Makefile.am
+
+Use variable LIBINTL
+
+To compile with GNU gettext, we need libintl on freebsd.
+So it is safer to specify the variable LIBINTL which is set by AM_GNU_GETTEXT.
+
+------------------------------------------------------------------------
+r260 | krisna | 2011-03-11 00:02:11 +0900 (Fri, 11 Mar 2011) | 2 lines
+Changed paths:
+   M /libhangul/trunk/test/test.c
+
+두벌식 테스트 추가
+
+------------------------------------------------------------------------
+r259 | krisna | 2011-03-11 00:01:20 +0900 (Fri, 11 Mar 2011) | 2 lines
+Changed paths:
+   M /libhangul/trunk/autogen.sh
+   M /libhangul/trunk/configure.ac
+
+gettext 관련 파일을 업데이트하기 위해서 autopoint를 사용함
+
+------------------------------------------------------------------------
+r257 | krisna | 2011-01-02 23:57:43 +0900 (Sun, 02 Jan 2011) | 4 lines
+Changed paths:
+   M /libhangul/trunk/NEWS
+   M /libhangul/trunk/README
+
+release 0.0.12
+
+문서 업데이트
+
+------------------------------------------------------------------------
+r256 | krisna | 2011-01-02 23:25:18 +0900 (Sun, 02 Jan 2011) | 2 lines
+Changed paths:
+   M /libhangul/trunk/tools/hangul.c
+
+copyright 문구 추가
+
+------------------------------------------------------------------------
+r255 | krisna | 2011-01-02 23:00:51 +0900 (Sun, 02 Jan 2011) | 2 lines
+Changed paths:
+   M /libhangul/trunk/po/ko.po
+
+번역 업데이트
+
+------------------------------------------------------------------------
+r254 | krisna | 2011-01-02 22:36:45 +0900 (Sun, 02 Jan 2011) | 2 lines
+Changed paths:
+   M /libhangul/trunk/tools/hangul.c
+
+메시지 업데이트
+
+------------------------------------------------------------------------
+r253 | krisna | 2011-01-02 16:51:10 +0900 (Sun, 02 Jan 2011) | 2 lines
+Changed paths:
+   M /libhangul/trunk/configure.ac
+
+0.0.12 릴리스 준비
+
+------------------------------------------------------------------------
+r252 | krisna | 2010-12-29 23:30:34 +0900 (Wed, 29 Dec 2010) | 9 lines
+Changed paths:
+   M /libhangul/trunk/configure.ac
+   M /libhangul/trunk/hangul/hangulinputcontext.c
+   M /libhangul/trunk/tools/hangul.c
+
+hangul_ic_get_keyboard_name()의 리턴값을 로캘에 관계없이 UTF-8로 함
+
+hangul_ic_get_keyboard_name() 함수의 리턴값을 사용하는 곳의 대부분이 
+UTF-8인 경우에 더 사용하기 편리하다. nabi, ibus, scim, imhangul 등의 경우 
+결국 스트링을 UTF-8로 변환해야 하므로 여기에서 UTF-8을 리턴하면 코딩이 
+더 편리해진다. 단 tools/hangul.c 에서는 locale에 따른 변환을 해주어야
+하므로 약간 더 불편해지기는 하지만, 나머지에서 수정할 내용이 줄어들므로 
+이 편이 더 낫다.
+
+------------------------------------------------------------------------
+r251 | krisna | 2010-12-29 22:38:28 +0900 (Wed, 29 Dec 2010) | 2 lines
+Changed paths:
+   M /libhangul/trunk/tools/Makefile.am
+   M /libhangul/trunk/tools/hangul.c
+
+gettext 적용
+
+------------------------------------------------------------------------
+r250 | krisna | 2010-12-29 16:54:27 +0900 (Wed, 29 Dec 2010) | 2 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulinputcontext.c
+
+세벌식 두벌 자판은 별로 중요하지 않은 자판이므로 순서를 아래로 낮춤
+
+------------------------------------------------------------------------
+r249 | krisna | 2010-12-29 00:51:48 +0900 (Wed, 29 Dec 2010) | 2 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulinputcontext.c
+
+자판 이름 시작 글자를 대문자로 바꿈
+
+------------------------------------------------------------------------
+r248 | krisna | 2010-12-28 16:03:44 +0900 (Tue, 28 Dec 2010) | 9 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulkeyboard.h
+
+#315248 안마태 자판 추가
+
+안마태 자판에서 임의로 추가된 기호 부분을 제거하고, 대신 shift 상태에서도
+shift가 아닐때 글자가 나오도록 수정한다. 
+이전에 빠트렸던, OP의 [] 문자를 추가한다.
+자모의 이름이 Unicode와 맞지 않는 부분을 unicode 이름으로 바꾼다.
+안마태 자판에서 shift 상태에 배당되어 있지 않은 곳에 어떤 문자를 할당할지는
+좀더 토론을 거친후에 처리하는 편이 좋을 것이다.
+
+------------------------------------------------------------------------
+r247 | krisna | 2010-12-26 22:58:09 +0900 (Sun, 26 Dec 2010) | 2 lines
+Changed paths:
+   M /libhangul/trunk/tools/hangul.c
+
+자동 순서 교정 기능을 끄는 옵션 --strict-order 추가
+
+------------------------------------------------------------------------
+r246 | krisna | 2010-12-26 21:59:54 +0900 (Sun, 26 Dec 2010) | 5 lines
+Changed paths:
+   M /libhangul/trunk/Makefile.am
+
+테스트 디렉토리를 기본으로 빌드하지 않도록 바꿈
+
+별로 중요하지 않은 내용때문에 빌드 오류가 나는 문제로 수정이 필요한
+경우를 피하기 위한 것이다.
+
+------------------------------------------------------------------------
+r245 | krisna | 2010-12-26 21:54:23 +0900 (Sun, 26 Dec 2010) | 6 lines
+Changed paths:
+   M /libhangul/trunk/tools/Makefile.am
+   M /libhangul/trunk/tools/hangul.c
+
+헤더 참조 경로를 상대 경로로 바꿈
+
+configure 디렉토리가 소스 디렉토리와 다른 경우에 에러가 발생한다.
+make distcheck를 하면 에러난다. $(top_srcdir)을 써도 되는데,
+그냥 쉽게 상대 경로로 참조하도록 수정한다.
+
+------------------------------------------------------------------------
+r244 | krisna | 2010-12-26 14:43:53 +0900 (Sun, 26 Dec 2010) | 6 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulkeyboard.h
+
+세벌식 옛글 자판의 배열을 아래한글과 동일하게 바꿈
+
+옛글 자판에 대해서는 공인된 기준이 없는 만큼 사용자가 많을 것이라 예상되는
+아래한글의 세벌식 자판과 같은 자판을 지원하는 것이 사용자에게 편리할 것이라
+생각한다.
+
+------------------------------------------------------------------------
+r243 | krisna | 2010-12-26 14:41:46 +0900 (Sun, 26 Dec 2010) | 5 lines
+Changed paths:
+   M /libhangul/trunk/test/test.c
+
+두벌식과 두벌식 옛글 자판에 대한 테스트 케이스 추가
+
+계속 추가할 예정
+디버깅할때 편리하기 위해서 NOFORK 모드를 사용
+
+------------------------------------------------------------------------
+r242 | krisna | 2010-12-25 23:17:20 +0900 (Sat, 25 Dec 2010) | 9 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulinputcontext.c
+
+두벌식에서 초성이 옛글에서만 사용되는 종성으로 변환되는 경우 처리
+
+ㅃㅉㄸ은 옛글 자모 글자인데, 이번에 두벌식 옛글자판을 구현하면서
+hangul_choseong_to_jongseong() 함수로 초성에서 종성으로 변환이 가능해진
+자모 글자다. 그런데 저 글자는 현대 한글에서는 유효하지 않은 종성이므로
+현대 한글 자판에서는 위 초성들이 종성으로 변환되어서는 안된다.
+그래서 combination_table을 비교하여 conjoinable 자모인지 아닌지에
+따라서 종성 변환을 할 것인지 말 것인지 처리한다.
+
+------------------------------------------------------------------------
+r241 | krisna | 2010-12-25 16:33:04 +0900 (Sat, 25 Dec 2010) | 8 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulinputcontext.c
+
+hangul_combination_combine() 함수의 버그 수정
+
+hangul_combination_combine() 함수의 비교함수에서 두 key 값을 단순히
+뺄셈연산하여 리턴하게 되면 두수의 크기차 signed int를 넘어서는 경우에
+음수로 연산될 수 있어서 위험하다. 부등호를 이용하여 비교연산으로 처리한다.
+Unicode 5.2에서 추가된 자모들중 U+A960, U+D7B0 영역의 문자들을 조합하지
+못하는 문제 수정
+
+------------------------------------------------------------------------
+r240 | krisna | 2010-12-25 15:21:40 +0900 (Sat, 25 Dec 2010) | 6 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulkeyboard.h
+
+아래한글과 같은 아래아 조합규칙 추가
+
+아래한글에서는 ㅏ+ㅏ를 아래아로 조합하는 규칙이 있다. 
+옛한글 입력 편의성을 위해서 아래한글과 같이 ㅏ+ㅏ를 아래아로 변환하는
+규칙을 추가한다.
+
+------------------------------------------------------------------------
+r239 | krisna | 2010-12-25 14:36:13 +0900 (Sat, 25 Dec 2010) | 6 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulkeyboard.h
+
+옛한글 조합테이블에 빠진 부분 추가
+
+모음 U+116A, U+116B, U+1170, U+118B, U+D7B6를 조합하는 룰이 빠져있어서
+새로 추가한다. 아마도 스크립트로 생성시에 제대로 처리되지 못한 부분이
+있었던 것 같다.
+
+------------------------------------------------------------------------
+r238 | krisna | 2010-12-25 14:11:01 +0900 (Sat, 25 Dec 2010) | 11 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulctype.c
+   M /libhangul/trunk/hangul/hangulkeyboard.h
+
+옛이응이 이응으로 처리되는 부분 수정
+
+http://www.unicode.org/Public/UNIDATA/NamesList.txt 파일의 내용을 
+이용해서 자모 조합 테이블을 생성한 결과에 문제가 있다.
+위 파일에서는 U+11EC - U+11EF 부분의 이름을 옛이응으로 하지 않고 
+이응으로 되어 있다. 그래서 이 파일로 부터 생성한 조합테이블에서는
+이응 + 이응이 U+11EE가 나오는 문제가 있다. 
+그래서 이 부분은 손으로 직접 수정했다.
+Unicode 5.2에서 정의된 내용에 따르면 U+11EC - U+11EF 부분은 옛이응으로
+처리하는 것이 맞다.
+
+------------------------------------------------------------------------
+r237 | krisna | 2010-12-25 13:40:12 +0900 (Sat, 25 Dec 2010) | 4 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulctype.c
+
+hangul_is_jongseong() 함수 버그 수정
+
+236에서 잘못 고친 부분 수정
+
+------------------------------------------------------------------------
+r236 | krisna | 2010-12-25 13:24:52 +0900 (Sat, 25 Dec 2010) | 2 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulctype.c
+
+Unicode 5.2에서 확장된 한글 자모 영역을 제대로 확인하지 못하는 문제 수정
+
+------------------------------------------------------------------------
+r235 | krisna | 2010-12-25 12:37:02 +0900 (Sat, 25 Dec 2010) | 11 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulctype.c
+   M /libhangul/trunk/hangul/hangulinputcontext.c
+   M /libhangul/trunk/hangul/hangulinternals.h
+   M /libhangul/trunk/hangul/hangulkeyboard.h
+
+한글 두벌식 옛글 자판 초기 구현
+
+자판의 배열을 아래한글의 두벌식 옛글자판과 동일하게 맞추었다.
+초성과 종성을 뒤바꾸는 코드에서 UNICODE 5.2 버전의 옛한글을 지원하도록
+하였다. 기존 두벌식에서 사용하던 hangul_jongseong_dicompose() 함수로는
+옛한글 처리를 할 수가 없으므로 새로이 hangul_jongseong_get_diff() 함수를 
+구현하고, 이 함수를 이용하여 구현을 변경하였다.
+그러나 아직 버그가 있으므로 차츰 수정해 나가도록 한다.
+또한 옛한글을 지원하는 과정에서 현대 한글 두벌식 자판에도 영향을 미쳤으므로
+이 역시 차츰 수정해 나가도록 한다.
+
+------------------------------------------------------------------------
+r234 | krisna | 2010-12-24 23:37:42 +0900 (Fri, 24 Dec 2010) | 4 lines
+Changed paths:
+   M /libhangul/trunk/hangul/Makefile.am
+
+hangul-gettext.h 소스 리스트에 추가
+
+이 파일이 빠지면 make dist에서 에러남
+
+------------------------------------------------------------------------
+r233 | krisna | 2010-12-19 13:53:20 +0900 (Sun, 19 Dec 2010) | 11 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulinputcontext.c
+   M /libhangul/trunk/test/test.c
+
+완성 음절로 표현이 불가능한 경우 한글 자모로 표현
+
+지금까지는 완성 음절로 표현이 불가능한 중성 + 종성 같은 음절의 경우
+호환자모 중성과 종성을 나열하여 표현하였는데, 이제는 한글 자모 영역의
+글자를 사용하여 초성채움 + 중성 + 종성으로 표현한다.
+이렇게 기능을 수정하면, 옛한글 자판의 경우도 hangul_buffer_get_string()
+함수를 그대로 사용할 수 있으므로 자판 관리가 좀더 편리해지는 측면이 있다.
+그러나 단점으로 세벌식에서 모아치기 기능을 활용하는 중에 한글 자모로 표현한
+글자가 나타날 수 있는데, 이때에 이 글자를 제대로 렌더링 하지 못할 가능성이
+있다.
+
+------------------------------------------------------------------------
+r232 | krisna | 2010-12-12 20:45:52 +0900 (Sun, 12 Dec 2010) | 5 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulinputcontext.c
+
+hangul_ic_select_keyboard() 함수에서 지정된 키보드를 못찾은 경우
+한글 자판이 설정되지 않는 문제 수정
+
+자판 찾기에 실패한 경우 기본자판으로 두벌식 자판을 설정함
+
+------------------------------------------------------------------------
+r231 | krisna | 2010-12-12 20:36:58 +0900 (Sun, 12 Dec 2010) | 2 lines
+Changed paths:
+   M /libhangul/trunk/autogen.sh
+
+autotools 관련 파일을 링크보다는 복사하도록 함
+
+------------------------------------------------------------------------
+r230 | krisna | 2010-12-12 20:01:02 +0900 (Sun, 12 Dec 2010) | 2 lines
+Changed paths:
+   M /libhangul/trunk/Makefile.am
+
+m4/ChangeLog가 없어서 make dist 에서 오류 발생함
+
+------------------------------------------------------------------------
+r229 | krisna | 2010-12-12 19:52:23 +0900 (Sun, 12 Dec 2010) | 2 lines
+Changed paths:
+   M /libhangul/trunk/Makefile.am
+   M /libhangul/trunk/autogen.sh
+   M /libhangul/trunk/configure.ac
+   M /libhangul/trunk/hangul/Makefile.am
+   A /libhangul/trunk/hangul/hangul-gettext.h
+   M /libhangul/trunk/hangul/hangulinputcontext.c
+   A /libhangul/trunk/po
+   A /libhangul/trunk/po/LINGUAS
+   A /libhangul/trunk/po/Makevars
+   A /libhangul/trunk/po/POTFILES.in
+   A /libhangul/trunk/po/ko.po
+
+gettext 적용
+
+------------------------------------------------------------------------
+r228 | krisna | 2010-12-12 19:08:30 +0900 (Sun, 12 Dec 2010) | 6 lines
+Changed paths:
+   M /libhangul/trunk/tools/Makefile.am
+   A /libhangul/trunk/tools/hangul.c
+
+한글 자판을 영문 상태로 친 스트링을 한글로 변환해주는 프로그램 구현
+
+예를 들어
+ hangul -i dkssudgktpdy 를 실행하면 "안녕하세요"를 출력,
+ echo dkssudgktpdy | hangul  을 실행하면 "안녕하세요"를 출력한다.
+
+------------------------------------------------------------------------
+r227 | krisna | 2010-11-14 20:35:48 +0900 (Sun, 14 Nov 2010) | 2 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangul.h
+   M /libhangul/trunk/hangul/hangulinputcontext.c
+   M /libhangul/trunk/hangul/hangulkeyboard.h
+   M /libhangul/trunk/test/test.c
+
+한글 키보드의 리스트와 이름을 가져오는 인터페이스 구현
+
+------------------------------------------------------------------------
+r225 | krisna | 2010-07-17 23:47:24 +0900 (Sat, 17 Jul 2010) | 2 lines
+Changed paths:
+   M /libhangul/trunk/configure.ac
+
+release 0.0.11
+
+------------------------------------------------------------------------
+r224 | krisna | 2010-07-17 23:42:41 +0900 (Sat, 17 Jul 2010) | 2 lines
+Changed paths:
+   M /libhangul/trunk/NEWS
+
+update document
+
+------------------------------------------------------------------------
+r223 | krisna | 2010-07-17 01:08:47 +0900 (Sat, 17 Jul 2010) | 2 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulkeyboard.h
+
+옛한글 조합 테이블의 주석을 나머지와 테이블과 같은 형식으로 변경함
+
+------------------------------------------------------------------------
+r222 | krisna | 2010-07-17 00:50:29 +0900 (Sat, 17 Jul 2010) | 2 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulkeyboard.h
+
+유니코드 5.1에 따라 새로 추가된 옛한글 자모에 대한 조합 규칙 추가
+
+------------------------------------------------------------------------
+r221 | krisna | 2010-04-26 22:49:45 +0900 (Mon, 26 Apr 2010) | 5 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulinputcontext.c
+   M /libhangul/trunk/hangul/hangulkeyboard.h
+
+안마태 자판 구현 추가 #315248
+ * Homin Lee님의 패치를 약간 수정하여 적용함
+   일부 대분자에 임의로 할당된 기호 글자들 제거
+   주석 포맷이 틀린곳 수정
+
+------------------------------------------------------------------------
+r220 | krisna | 2010-04-04 19:55:37 +0900 (Sun, 04 Apr 2010) | 6 lines
+Changed paths:
+   M /libhangul/trunk/hangul/hangulctype.c
+
+버그수정: #315256 한글 종성 입력시 글꼴 랜더링 문제
+ * 세벌식 자판에서 종성만 입력하는 경우 U+1100 자모로 출력하는 문제임
+   r201에서 hangul_jamo_to_cjamo() 함수의 테이블을 하나로 합치면서
+   잘못하여 데이터를 손실하여 발생한 문제
+   빠진 종성들을 compatibility jamo로 변환할 수 있도록 함
+
+------------------------------------------------------------------------
+r219 | krisna | 2010-03-12 21:08:03 +0900 (Fri, 12 Mar 2010) | 5 lines
+Changed paths:
+   M /libhangul/trunk/data/hanja/freq-hanja.txt
+   M /libhangul/trunk/data/hanja/hanja.txt
+
+버그수정: #315200 KS X 1002 한자를 좀 더 앞쪽으로
+ * 한자의 빈도에 따른 우선 순위를 조정하여 KS X 1002 에서 지정한 한자를 좀더 
+   앞쪽으로 배치되게 수정함
+ * 작업을 해주신 박원규님에게 감사드립니다.
+
+------------------------------------------------------------------------
+r218 | krisna | 2010-03-10 00:17:53 +0900 (Wed, 10 Mar 2010) | 5 lines
+Changed paths:
+   M /libhangul/trunk/data/hanja/hanja.txt
+
+버그수정: #315197 중복된 한자 단어
+ * 반복되어 들어 있는 단어 제거
+   아마도 변환 과정에서 오류가 있었던 것 같다.
+   아니면 호환한자 관련한 문제가 있었던 것인지도 모르겠다.
+
+------------------------------------------------------------------------
+r217 | krisna | 2010-03-10 00:11:40 +0900 (Wed, 10 Mar 2010) | 3 lines
+Changed paths:
+   M /libhangul/trunk/data/hanja/hanja.txt
+
+버그수정: #315196 포주:庖廚:푸주의 원말
+ 텍스트 변환에서 발생한 것으로 보이는 오류 수정
+
+------------------------------------------------------------------------
+r216 | krisna | 2009-12-06 16:44:22 +0900 (Sun, 06 Dec 2009) | 2 lines
+Changed paths:
+   M /libhangul/trunk/data/hanja/hanja.txt
+
+잘못된 글자 수정: 반대:胖大
+
+------------------------------------------------------------------------
+r215 | krisna | 2009-11-07 22:31:44 +0900 (Sat, 07 Nov 2009) | 2 lines
+Changed paths:
+   M /libhangul/trunk/data/hanja/hanja.txt
+
+한자어중 한자로 표기 되지 않은 것 한자로 바꿈
+
+------------------------------------------------------------------------
+r214 | krisna | 2009-11-07 21:35:31 +0900 (Sat, 07 Nov 2009) | 2 lines
+Changed paths:
+   M /libhangul/trunk/data/hanja/hanja.txt
+
+거칠부의 한자는 삼국사기의 기록에 따라 居柒夫로 한다.
+
+------------------------------------------------------------------------
 r212 | krisna | 2009-10-31 14:32:09 +0900 (Sat, 31 Oct 2009) | 3 lines
 Changed paths:
    M /libhangul/trunk/configure.ac
