@@ -177,14 +177,6 @@
 
 #define HANGUL_KEYBOARD_TABLE_SIZE 0x80
 
-typedef void   (*HangulOnTranslate)  (HangulInputContext*,
-				      int,
-				      ucschar*,
-				      void*);
-typedef bool   (*HangulOnTransition) (HangulInputContext*,
-				      ucschar,
-				      const ucschar*,
-				      void*);
 
 typedef struct _HangulCombinationItem HangulCombinationItem;
 
