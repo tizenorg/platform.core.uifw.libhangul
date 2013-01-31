@@ -4,7 +4,7 @@ Release:        1
 License:        LGPLv2.1
 Group:          System/I18n/Korean
 AutoReqProv:    on
-Url:            http://kldp.net/projects/hangul/
+Url:            http://code.google.com/p/libhangul
 Source0:        %{name}-%{version}.tar.gz
 Summary:        Hangul input library used by scim-hangul and ibus-hangul
 BuildRequires:  gettext-tools
