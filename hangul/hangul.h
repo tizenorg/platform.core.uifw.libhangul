@@ -52,10 +52,6 @@ bool hangul_is_cjamo(ucschar c);
 
 ucschar hangul_jamo_to_cjamo(ucschar ch);
 
-ucschar hangul_choseong_to_jongseong(ucschar ch);
-ucschar hangul_jongseong_to_choseong(ucschar ch);
-void    hangul_jongseong_dicompose(ucschar ch, ucschar* jong, ucschar* cho);
-
 const ucschar* hangul_syllable_iterator_prev(const ucschar* str,
 					     const ucschar* begin);
 const ucschar* hangul_syllable_iterator_next(const ucschar* str,
@@ -114,6 +110,7 @@ bool hangul_ic_is_empty(HangulInputContext *hic);
 bool hangul_ic_has_choseong(HangulInputContext *hic);
 bool hangul_ic_has_jungseong(HangulInputContext *hic);
 bool hangul_ic_has_jongseong(HangulInputContext *hic);
+bool hangul_ic_is_transliteration(HangulInputContext *hic);
 
 void hangul_ic_set_output_mode(HangulInputContext *hic, int mode);
 void hangul_ic_set_keyboard(HangulInputContext *hic,
@@ -124,6 +121,10 @@ void hangul_ic_set_combination(HangulInputContext *hic,
 			       const HangulCombination *combination);
 void hangul_ic_connect_callback(HangulInputContext* hic, const char* event,
 				void* callback, void* user_data);
+
+unsigned    hangul_ic_get_n_keyboards();
+const char* hangul_ic_get_keyboard_id(unsigned index_);
+const char* hangul_ic_get_keyboard_name(unsigned index_);
 
 const ucschar* hangul_ic_get_preedit_string(HangulInputContext *hic);
 const ucschar* hangul_ic_get_commit_string(HangulInputContext *hic);
@@ -151,23 +152,6 @@ void         hanja_list_delete(HanjaList *list);
 const char*  hanja_get_key(const Hanja* hanja);
 const char*  hanja_get_value(const Hanja* hanja);
 const char*  hanja_get_comment(const Hanja* hanja);
-
-
-/* deprecated */
-bool hangul_is_jaso(ucschar c) LIBHANGUL_DEPRECATED;
-ucschar hangul_jaso_to_jamo(ucschar ch) LIBHANGUL_DEPRECATED;
-ucschar hangul_jaso_to_syllable(ucschar choseong,
-				ucschar jungseong,
-				ucschar jongseong) LIBHANGUL_DEPRECATED;
-void    hangul_syllable_to_jaso(ucschar syllable,
-				ucschar* choseong,
-				ucschar* jungseong,
-				ucschar* jongseong) LIBHANGUL_DEPRECATED;
-typedef bool (*HangulICFilter) (ucschar*, ucschar, ucschar, ucschar, void*);
-void hangul_ic_set_filter(HangulInputContext *hic,
-			  HangulICFilter func, void *user_data) LIBHANGUL_DEPRECATED;
-int  hangul_ic_dvorak_to_qwerty(int qwerty) LIBHANGUL_DEPRECATED;
-
 
 #ifdef __cplusplus
 }

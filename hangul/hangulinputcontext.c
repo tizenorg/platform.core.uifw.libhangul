@@ -25,6 +25,7 @@
 #include <inttypes.h>
 #include <limits.h>
 
+#include "hangul-gettext.h"
 #include "hangul.h"
 #include "hangulinternals.h"
 
@@ -54,8 +55,8 @@
  * string 형태로 보내여 입력을 완료하는 것이다. 다음 키를 받게 되면 
  * 이 과정을 반복해서 수행한다.
  * 
- * libhangul에서 한글 조합 기능은 @ref HangulInputContext를 이용해서 구현하게
- * 되는데 기본 적인 방법은 @ref HangulInputContext에 사용자로부터의 입력을
+ * libhangul에서 한글 조합 기능은 @ref HangulInputContext 를 이용해서 구현하게
+ * 되는데 기본 적인 방법은 @ref HangulInputContext 에 사용자로부터의 입력을
  * 순서대로 전달하면서 그 상태가 바뀜에 따라서 preedit 나 commit 스트링을
  * 상황에 맞게 변화시키는 것이다.
  * 
@@ -188,7 +189,10 @@ typedef struct _HangulCombinationItem HangulCombinationItem;
 
 struct _HangulKeyboard {
     int type;
-    ucschar* table;
+    const char* id;
+    const char* name;
+    const ucschar* table;
+    const HangulCombination* combination;
 };
 
 struct _HangulCombinationItem {
@@ -214,7 +218,6 @@ struct _HangulInputContext {
     int type;
 
     const HangulKeyboard*    keyboard;
-    const HangulCombination* combination;
 
     HangulBuffer buffer;
     int output_mode;
@@ -229,48 +232,10 @@ struct _HangulInputContext {
     HangulOnTransition  on_transition;
     void*               on_transition_data;
 
-    HangulICFilter filter;
-    void *filter_data;
-
     unsigned int use_jamo_mode_only : 1;
 };
 
 #include "hangulkeyboard.h"
-
-static const HangulKeyboard hangul_keyboard_2 = {
-    HANGUL_KEYBOARD_TYPE_JAMO,
-    (ucschar*)hangul_keyboard_table_2
-};
-
-static const HangulKeyboard hangul_keyboard_32 = {
-    HANGUL_KEYBOARD_TYPE_JASO,
-    (ucschar*)hangul_keyboard_table_32
-};
-
-static const HangulKeyboard hangul_keyboard_390 = {
-    HANGUL_KEYBOARD_TYPE_JASO,
-    (ucschar*)hangul_keyboard_table_390
-};
-
-static const HangulKeyboard hangul_keyboard_3final = {
-    HANGUL_KEYBOARD_TYPE_JASO,
-    (ucschar*)hangul_keyboard_table_3final
-};
-
-static const HangulKeyboard hangul_keyboard_3sun = {
-    HANGUL_KEYBOARD_TYPE_JASO,
-    (ucschar*)hangul_keyboard_table_3sun
-};
-
-static const HangulKeyboard hangul_keyboard_3yet = {
-    HANGUL_KEYBOARD_TYPE_JASO,
-    (ucschar*)hangul_keyboard_table_3yet
-};
-
-static const HangulKeyboard hangul_keyboard_romaja = {
-    HANGUL_KEYBOARD_TYPE_ROMAJA,
-    (ucschar*)hangul_keyboard_table_romaja
-};
 
 static const HangulCombination hangul_combination_default = {
     N_ELEMENTS(hangul_combination_table_default),
@@ -287,6 +252,96 @@ static const HangulCombination hangul_combination_full = {
     (HangulCombinationItem*)hangul_combination_table_full
 };
 
+static const HangulCombination hangul_combination_ahn = {
+    N_ELEMENTS(hangul_combination_table_ahn),
+    (HangulCombinationItem*)hangul_combination_table_ahn
+};
+
+static const HangulKeyboard hangul_keyboard_2 = {
+    HANGUL_KEYBOARD_TYPE_JAMO,
+    "2", 
+    N_("Dubeolsik"), 
+    (ucschar*)hangul_keyboard_table_2,
+    &hangul_combination_default
+};
+
+static const HangulKeyboard hangul_keyboard_2y = {
+    HANGUL_KEYBOARD_TYPE_JAMO,
+    "2y", 
+    N_("Dubeolsik Yetgeul"), 
+    (ucschar*)hangul_keyboard_table_2y,
+    &hangul_combination_full
+};
+
+static const HangulKeyboard hangul_keyboard_32 = {
+    HANGUL_KEYBOARD_TYPE_JASO,
+    "32",
+    N_("Sebeolsik Dubeol Layout"),
+    (ucschar*)hangul_keyboard_table_32,
+    &hangul_combination_default
+};
+
+static const HangulKeyboard hangul_keyboard_390 = {
+    HANGUL_KEYBOARD_TYPE_JASO,
+    "39",
+    N_("Sebeolsik 390"),
+    (ucschar*)hangul_keyboard_table_390,
+    &hangul_combination_default
+};
+
+static const HangulKeyboard hangul_keyboard_3final = {
+    HANGUL_KEYBOARD_TYPE_JASO,
+    "3f",
+    N_("Sebeolsik Final"),
+    (ucschar*)hangul_keyboard_table_3final,
+    &hangul_combination_default
+};
+
+static const HangulKeyboard hangul_keyboard_3sun = {
+    HANGUL_KEYBOARD_TYPE_JASO,
+    "3s",
+    N_("Sebeolsik Noshift"),
+    (ucschar*)hangul_keyboard_table_3sun,
+    &hangul_combination_default
+};
+
+static const HangulKeyboard hangul_keyboard_3yet = {
+    HANGUL_KEYBOARD_TYPE_JASO,
+    "3y",
+    N_("Sebeolsik Yetgeul"),
+    (ucschar*)hangul_keyboard_table_3yet,
+    &hangul_combination_full
+};
+
+static const HangulKeyboard hangul_keyboard_romaja = {
+    HANGUL_KEYBOARD_TYPE_ROMAJA,
+    "ro",
+    N_("Romaja"),
+    (ucschar*)hangul_keyboard_table_romaja,
+    &hangul_combination_romaja
+};
+
+static const HangulKeyboard hangul_keyboard_ahn = {
+    HANGUL_KEYBOARD_TYPE_JASO,
+    "ahn",
+    N_("Ahnmatae"),
+    (ucschar*)hangul_keyboard_table_ahn,
+    &hangul_combination_ahn
+};
+
+static const HangulKeyboard* hangul_keyboards[] = {
+    &hangul_keyboard_2,
+    &hangul_keyboard_2y,
+    &hangul_keyboard_390,
+    &hangul_keyboard_3final,
+    &hangul_keyboard_3sun,
+    &hangul_keyboard_3yet,
+    &hangul_keyboard_32,
+    &hangul_keyboard_romaja,
+    &hangul_keyboard_ahn,
+};
+
+
 static void    hangul_buffer_push(HangulBuffer *buffer, ucschar ch);
 static ucschar hangul_buffer_pop (HangulBuffer *buffer);
 static ucschar hangul_buffer_peek(HangulBuffer *buffer);
@@ -302,12 +357,13 @@ hangul_keyboard_new()
 {
     HangulKeyboard *keyboard = malloc(sizeof(HangulKeyboard));
     if (keyboard != NULL) {
-	keyboard->table = malloc(sizeof(ucschar) * HANGUL_KEYBOARD_TABLE_SIZE);
-	if (keyboard->table != NULL) {
+	ucschar* table = malloc(sizeof(ucschar) * HANGUL_KEYBOARD_TABLE_SIZE);
+	if (table != NULL) {
 	    int i;
 	    for (i = 0; i < HANGUL_KEYBOARD_TABLE_SIZE; i++)
-		keyboard->table[i] = 0;
+		table[i] = 0;
 
+	    keyboard->table = table;
 	    return keyboard;
 	}
 	free(keyboard);
@@ -331,8 +387,10 @@ void
 hangul_keyboard_set_value(HangulKeyboard *keyboard, int key, ucschar value)
 {
     if (keyboard != NULL) {
-	if (key >= 0 && key < N_ELEMENTS(keyboard->table))
-	    keyboard->table[key] = value;
+	if (key >= 0 && key < N_ELEMENTS(keyboard->table)) {
+	    ucschar* table = (ucschar*)keyboard->table;
+	    table[key] = value;
+	}
     }
 }
 
@@ -421,7 +479,15 @@ hangul_combination_cmp(const void* p1, const void* p2)
 {
     const HangulCombinationItem *item1 = p1;
     const HangulCombinationItem *item2 = p2;
-    return item1->key - item2->key;
+
+    /* key는 unsigned int이므로 단순히 빼서 리턴하면 안된다.
+     * 두 수의 차가 큰 경우 int로 변환하면서 음수가 될 수 있다. */
+    if (item1->key < item2->key)
+	return -1;
+    else if (item1->key > item2->key)
+	return 1;
+    else
+	return 0;
 }
 
 ucschar
@@ -557,38 +623,60 @@ hangul_jaso_to_string(ucschar cho, ucschar jung, ucschar jong,
 	if (jung) {
 	    /* have cho, jung, jong or no jong */
 	    ch = hangul_jamo_to_syllable(cho, jung, jong);
-	    buf[n++] = ch;
+	    if (ch != 0) {
+		buf[n++] = ch;
+	    } else {
+		/* 한글 음절로 표현 불가능한 경우 */
+		buf[n++] = cho;
+		buf[n++] = jung;
+		if (jong != 0)
+		    buf[n++] = jong;
+	    }
 	} else {
 	    if (jong) {
 		/* have cho, jong */
-		ch = hangul_jamo_to_cjamo(cho);
-		buf[n++] = ch;
-		ch = hangul_jamo_to_cjamo(jong);
-		buf[n++] = ch;
+		buf[n++] = cho;
+		buf[n++] = HANGUL_JUNGSEONG_FILLER;
+		buf[n++] = jong;
 	    } else {
 		/* have cho */
 		ch = hangul_jamo_to_cjamo(cho);
-		buf[n++] = ch;
+		if (hangul_is_cjamo(ch)) {
+		    buf[n++] = ch;
+		} else {
+		    buf[n++] = cho;
+		    buf[n++] = HANGUL_JUNGSEONG_FILLER;
+		}
 	    }
 	}
     } else {
 	if (jung) {
 	    if (jong) {
 		/* have jung, jong */
-		ch = hangul_jamo_to_cjamo(jung);
-		buf[n++] = ch;
-		ch = hangul_jamo_to_cjamo(jong);
-		buf[n++] = ch;
+		buf[n++] = HANGUL_CHOSEONG_FILLER;
+		buf[n++] = jung;
+		buf[n++] = jong;
 	    } else {
 		/* have jung */
 		ch = hangul_jamo_to_cjamo(jung);
-		buf[n++] = ch;
+		if (hangul_is_cjamo(ch)) {
+		    buf[n++] = ch;
+		} else {
+		    buf[n++] = HANGUL_CHOSEONG_FILLER;
+		    buf[n++] = jung;
+		}
 	    }
 	} else {
 	    if (jong) { 
 		/* have jong */
 		ch = hangul_jamo_to_cjamo(jong);
-		buf[n++] = ch;
+		if (hangul_is_cjamo(ch)) {
+		    buf[n++] = ch;
+		} else {
+		    buf[n++] = HANGUL_CHOSEONG_FILLER;
+		    buf[n++] = HANGUL_JUNGSEONG_FILLER;
+		    buf[n++] = jong;
+		}
 	    } else {
 		/* have nothing */
 		buf[n] = 0;
@@ -744,6 +832,23 @@ hangul_ic_save_commit_string(HangulInputContext *hic)
     hangul_buffer_clear(&hic->buffer);
 }
 
+static ucschar
+hangul_ic_choseong_to_jongseong(HangulInputContext* hic, ucschar cho)
+{
+    ucschar jong = hangul_choseong_to_jongseong(cho);
+    if (hangul_is_jongseong_conjoinable(jong)) {
+	return jong;
+    } else {
+	/* 옛글 조합 규칙을 사용하는 자판의 경우에는 종성이 conjoinable
+	 * 하지 않아도 상관없다 */
+	if (hic->keyboard->combination == &hangul_combination_full) {
+	    return jong;
+	}
+    }
+
+    return 0;
+}
+
 static bool
 hangul_ic_process_jamo(HangulInputContext *hic, ucschar ch)
 {
@@ -758,8 +863,8 @@ hangul_ic_process_jamo(HangulInputContext *hic, ucschar ch)
 
     if (hic->buffer.jongseong) {
 	if (hangul_is_choseong(ch)) {
-	    jong = hangul_choseong_to_jongseong(ch);
-	    combined = hangul_combination_combine(hic->combination,
+	    jong = hangul_ic_choseong_to_jongseong(hic, ch);
+	    combined = hangul_combination_combine(hic->keyboard->combination,
 					      hic->buffer.jongseong, jong);
 	    if (hangul_is_jongseong(combined)) {
 		if (!hangul_ic_push(hic, combined)) {
@@ -778,20 +883,26 @@ hangul_ic_process_jamo(HangulInputContext *hic, ucschar ch)
 	    pop = hangul_ic_pop(hic);
 	    peek = hangul_ic_peek(hic);
 
-	    if (hangul_is_jungseong(peek)) {
+	    if (hangul_is_jongseong(peek)) {
+		ucschar choseong = hangul_jongseong_get_diff(peek,
+						 hic->buffer.jongseong);
+		if (choseong == 0) {
+		    hangul_ic_save_commit_string(hic);
+		    if (!hangul_ic_push(hic, ch)) {
+			return false;
+		    }
+		} else {
+		    hic->buffer.jongseong = peek;
+		    hangul_ic_save_commit_string(hic);
+		    hangul_ic_push(hic, choseong);
+		    if (!hangul_ic_push(hic, ch)) {
+			return false;
+		    }
+		}
+	    } else {
 		hic->buffer.jongseong = 0;
 		hangul_ic_save_commit_string(hic);
 		hangul_ic_push(hic, hangul_jongseong_to_choseong(pop));
-		if (!hangul_ic_push(hic, ch)) {
-		    return false;
-		}
-	    } else {
-		ucschar choseong = 0, jongseong = 0; 
-		hangul_jongseong_dicompose(hic->buffer.jongseong,
-					   &jongseong, &choseong);
-		hic->buffer.jongseong = jongseong;
-		hangul_ic_save_commit_string(hic);
-		hangul_ic_push(hic, choseong);
 		if (!hangul_ic_push(hic, ch)) {
 		    return false;
 		}
@@ -802,7 +913,7 @@ hangul_ic_process_jamo(HangulInputContext *hic, ucschar ch)
     } else if (hic->buffer.jungseong) {
 	if (hangul_is_choseong(ch)) {
 	    if (hic->buffer.choseong) {
-		jong = hangul_choseong_to_jongseong(ch);
+		jong = hangul_ic_choseong_to_jongseong(hic, ch);
 		if (hangul_is_jongseong(jong)) {
 		    if (!hangul_ic_push(hic, jong)) {
 			if (!hangul_ic_push(hic, ch)) {
@@ -823,7 +934,7 @@ hangul_ic_process_jamo(HangulInputContext *hic, ucschar ch)
 		}
 	    }
 	} else if (hangul_is_jungseong(ch)) {
-	    combined = hangul_combination_combine(hic->combination,
+	    combined = hangul_combination_combine(hic->keyboard->combination,
 						  hic->buffer.jungseong, ch);
 	    if (hangul_is_jungseong(combined)) {
 		if (!hangul_ic_push(hic, combined)) {
@@ -840,7 +951,7 @@ hangul_ic_process_jamo(HangulInputContext *hic, ucschar ch)
 	}
     } else if (hic->buffer.choseong) {
 	if (hangul_is_choseong(ch)) {
-	    combined = hangul_combination_combine(hic->combination,
+	    combined = hangul_combination_combine(hic->keyboard->combination,
 						  hic->buffer.choseong, ch);
 	    if (!hangul_ic_push(hic, combined)) {
 		if (!hangul_ic_push(hic, ch)) {
@@ -881,7 +992,7 @@ hangul_ic_process_jaso(HangulInputContext *hic, ucschar ch)
 	} else {
 	    ucschar choseong = 0;
 	    if (hangul_is_choseong(hangul_ic_peek(hic))) {
-		choseong = hangul_combination_combine(hic->combination,
+		choseong = hangul_combination_combine(hic->keyboard->combination,
 						  hic->buffer.choseong, ch);
 	    }
 	    if (choseong) {
@@ -907,7 +1018,7 @@ hangul_ic_process_jaso(HangulInputContext *hic, ucschar ch)
 	} else {
 	    ucschar jungseong = 0;
 	    if (hangul_is_jungseong(hangul_ic_peek(hic))) {
-		jungseong = hangul_combination_combine(hic->combination,
+		jungseong = hangul_combination_combine(hic->keyboard->combination,
 						 hic->buffer.jungseong, ch);
 	    }
 	    if (jungseong) {
@@ -935,7 +1046,7 @@ hangul_ic_process_jaso(HangulInputContext *hic, ucschar ch)
 	} else {
 	    ucschar jongseong = 0;
 	    if (hangul_is_jongseong(hangul_ic_peek(hic))) {
-		jongseong = hangul_combination_combine(hic->combination,
+		jongseong = hangul_combination_combine(hic->keyboard->combination,
 						   hic->buffer.jongseong, ch);
 	    }
 	    if (jongseong) {
@@ -992,8 +1103,8 @@ hangul_ic_process_romaja(HangulInputContext *hic, int ascii, ucschar ch)
 	    if (hangul_is_jongseong(ch))
 		jong = ch;
 	    else
-		jong = hangul_choseong_to_jongseong(ch);
-	    combined = hangul_combination_combine(hic->combination,
+		jong = hangul_ic_choseong_to_jongseong(hic, ch);
+	    combined = hangul_combination_combine(hic->keyboard->combination,
 					      hic->buffer.jongseong, jong);
 	    if (hangul_is_jongseong(combined)) {
 		if (!hangul_ic_push(hic, combined)) {
@@ -1020,6 +1131,7 @@ hangul_ic_process_romaja(HangulInputContext *hic, int ascii, ucschar ch)
 		if (hangul_is_jungseong(peek)) {
 		    if (pop == 0x11aa) {
 			hic->buffer.jongseong = 0x11a8;
+			pop = 0x11ba;
 		    } else {
 			hic->buffer.jongseong = 0;
 		    }
@@ -1030,7 +1142,7 @@ hangul_ic_process_romaja(HangulInputContext *hic, int ascii, ucschar ch)
 		    }
 		} else {
 		    ucschar choseong = 0, jongseong = 0; 
-		    hangul_jongseong_dicompose(hic->buffer.jongseong,
+		    hangul_jongseong_decompose(hic->buffer.jongseong,
 					       &jongseong, &choseong);
 		    hic->buffer.jongseong = jongseong;
 		    hangul_ic_save_commit_string(hic);
@@ -1046,7 +1158,7 @@ hangul_ic_process_romaja(HangulInputContext *hic, int ascii, ucschar ch)
     } else if (hic->buffer.jungseong) {
 	if (hangul_is_choseong(ch)) {
 	    if (hic->buffer.choseong) {
-		jong = hangul_choseong_to_jongseong(ch);
+		jong = hangul_ic_choseong_to_jongseong(hic, ch);
 		if (hangul_is_jongseong(jong)) {
 		    if (!hangul_ic_push(hic, jong)) {
 			if (!hangul_ic_push(hic, ch)) {
@@ -1067,7 +1179,7 @@ hangul_ic_process_romaja(HangulInputContext *hic, int ascii, ucschar ch)
 		}
 	    }
 	} else if (hangul_is_jungseong(ch)) {
-	    combined = hangul_combination_combine(hic->combination,
+	    combined = hangul_combination_combine(hic->keyboard->combination,
 						  hic->buffer.jungseong, ch);
 	    if (hangul_is_jungseong(combined)) {
 		if (!hangul_ic_push(hic, combined)) {
@@ -1091,7 +1203,7 @@ hangul_ic_process_romaja(HangulInputContext *hic, int ascii, ucschar ch)
 	}
     } else if (hic->buffer.choseong) {
 	if (hangul_is_choseong(ch)) {
-	    combined = hangul_combination_combine(hic->combination,
+	    combined = hangul_combination_combine(hic->keyboard->combination,
 						  hic->buffer.choseong, ch);
 	    if (combined == 0) {
 		hic->buffer.jungseong = 0x1173;
@@ -1147,7 +1259,7 @@ flush:
  * @brief 키 입력을 처리하여 실제로 한글 조합을 하는 함수
  * @param hic @ref HangulInputContext 오브젝트
  * @param ascii 키 이벤트
- * @return @ref HangulInputContext가 이 키를 사용했으면 true,
+ * @return @ref HangulInputContext 가 이 키를 사용했으면 true,
  *	     사용하지 않았으면 false
  *
  * ascii 값으로 주어진 키 이벤트를 받아서 내부의 한글 조합 상태를
@@ -1166,7 +1278,7 @@ flush:
  * 
  * 이 함수의 사용법에 대한 설명은 @ref hangulicusage 부분을 참조한다.
  *
- * @remarks 이 함수는 @ref HangulInputContext의 상태를 변화 시킨다.
+ * @remarks 이 함수는 @ref HangulInputContext 의 상태를 변화 시킨다.
  */
 bool
 hangul_ic_process(HangulInputContext *hic, int ascii)
@@ -1201,7 +1313,7 @@ hangul_ic_process(HangulInputContext *hic, int ascii)
  * 이 함수는  @a hic 내부의 현재 상태의 preedit string을 리턴한다.
  * 따라서 hic가 다른 키 이벤트를 처리하고 나면 그 내용이 바뀔 수 있다.
  * 
- * @remarks 이 함수는 @ref HangulInputContext의 상태를 변화 시키지 않는다.
+ * @remarks 이 함수는 @ref HangulInputContext 의 상태를 변화 시키지 않는다.
  */
 const ucschar*
 hangul_ic_get_preedit_string(HangulInputContext *hic)
@@ -1222,7 +1334,7 @@ hangul_ic_get_preedit_string(HangulInputContext *hic)
  * 이 함수는  @a hic 내부의 현재 상태의 commit string을 리턴한다.
  * 따라서 hic가 다른 키 이벤트를 처리하고 나면 그 내용이 바뀔 수 있다.
  *
- * @remarks 이 함수는 @ref HangulInputContext의 상태를 변화 시키지 않는다.
+ * @remarks 이 함수는 @ref HangulInputContext 의 상태를 변화 시키지 않는다.
  */
 const ucschar*
 hangul_ic_get_commit_string(HangulInputContext *hic)
@@ -1235,17 +1347,17 @@ hangul_ic_get_commit_string(HangulInputContext *hic)
 
 /**
  * @ingroup hangulic
- * @brief @ref HangulInputContext를 초기상태로 되돌리는 함수
- * @param hic @ref HangulInputContext를 가리키는 포인터
+ * @brief @ref HangulInputContext 를 초기상태로 되돌리는 함수
+ * @param hic @ref HangulInputContext 를 가리키는 포인터
  * 
- * 이 함수는 @a hic가 가리키는 @ref HangulInputContext의 상태를 
+ * 이 함수는 @a hic가 가리키는 @ref HangulInputContext 의 상태를 
  * 처음 상태로 되돌린다. preedit 스트링, commit 스트링, flush 스트링이
  * 없어지고, 입력되었던 키에 대한 기록이 없어진다.
  * 영어 상태로 바뀌는 것이 아니다.
  *
  * 비교: hangul_ic_flush()
  *
- * @remarks 이 함수는 @ref HangulInputContext의 상태를 변화 시킨다.
+ * @remarks 이 함수는 @ref HangulInputContext 의 상태를 변화 시킨다.
  */
 void
 hangul_ic_reset(HangulInputContext *hic)
@@ -1273,12 +1385,12 @@ hangul_ic_flush_internal(HangulInputContext *hic)
 
 /**
  * @ingroup hangulic
- * @brief @ref HangulInputContext의 입력 상태를 완료하는 함수
- * @param hic @ref HangulInputContext를 가리키는 포인터
+ * @brief @ref HangulInputContext 의 입력 상태를 완료하는 함수
+ * @param hic @ref HangulInputContext 를 가리키는 포인터
  * @return 조합 완료된 스트링, 스트링의 길이가 0이면 조합 완료된 스트링이 
  *	  없는 것
  *
- * 이 함수는 @a hic가 가리키는 @ref HangulInputContext의 입력 상태를 완료한다.
+ * 이 함수는 @a hic가 가리키는 @ref HangulInputContext 의 입력 상태를 완료한다.
  * 조합중이던 스트링을 완성하여 리턴한다. 그리고 입력 상태가 초기 상태로 
  * 되돌아 간다. 조합중이던 글자를 강제로 commit하고 싶을때 사용하는 함수다.
  * 보통의 경우 입력 framework에서 focus가 나갈때 이 함수를 불러서 마지막 
@@ -1286,7 +1398,7 @@ hangul_ic_flush_internal(HangulInputContext *hic)
  *
  * 비교: hangul_ic_reset()
  *
- * @remarks 이 함수는 @ref HangulInputContext의 상태를 변화 시킨다.
+ * @remarks 이 함수는 @ref HangulInputContext 의 상태를 변화 시킨다.
  */
 const ucschar*
 hangul_ic_flush(HangulInputContext *hic)
@@ -1314,16 +1426,16 @@ hangul_ic_flush(HangulInputContext *hic)
 
 /**
  * @ingroup hangulic
- * @brief @ref HangulInputContext가 backspace 키를 처리하도록 하는 함수
- * @param hic @ref HangulInputContext를 가리키는 포인터
+ * @brief @ref HangulInputContext 가 backspace 키를 처리하도록 하는 함수
+ * @param hic @ref HangulInputContext 를 가리키는 포인터
  * @return @a hic가 키를 사용했으면 true, 사용하지 않았으면 false
  * 
- * 이 함수는 @a hic가 가리키는 @ref HangulInputContext의 조합중이던 글자를
+ * 이 함수는 @a hic가 가리키는 @ref HangulInputContext 의 조합중이던 글자를
  * 뒤에서부터 하나 지우는 기능을 한다. backspace 키를 눌렀을 때 발생하는 
  * 동작을 한다. 따라서 이 함수를 부르고 나면 preedit string이 바뀌므로
  * 반드시 업데이트를 해야 한다.
  *
- * @remarks 이 함수는 @ref HangulInputContext의 상태를 변화 시킨다.
+ * @remarks 이 함수는 @ref HangulInputContext 의 상태를 변화 시킨다.
  */
 bool
 hangul_ic_backspace(HangulInputContext *hic)
@@ -1342,120 +1454,14 @@ hangul_ic_backspace(HangulInputContext *hic)
     return ret;
 }
 
-int
-hangul_ic_dvorak_to_qwerty(int qwerty)
-{
-    static const int table[] = {
-	'!',	/* ! */
-	'Q',	/* " */
-	'#',	/* # */
-	'$',	/* $ */
-	'%',	/* % */
-	'&',	/* & */
-	'q',	/* ' */
-	'(',	/* ( */
-	')',	/* ) */
-	'*',	/* * */
-	'}',	/* + */
-	'w',	/* , */
-	'\'',	/* - */
-	'e',	/* . */
-	'[',	/* / */
-	'0',	/* 0 */
-	'1',	/* 1 */
-	'2',	/* 2 */
-	'3',	/* 3 */
-	'4',	/* 4 */
-	'5',	/* 5 */
-	'6',	/* 6 */
-	'7',	/* 7 */
-	'8',	/* 8 */
-	'9',	/* 9 */
-	'Z',	/* : */
-	'z',	/* ; */
-	'W',	/* < */
-	']',	/* = */
-	'E',	/* > */
-	'{',	/* ? */
-	'@',	/* @ */
-	'A',	/* A */
-	'N',	/* B */
-	'I',	/* C */
-	'H',	/* D */
-	'D',	/* E */
-	'Y',	/* F */
-	'U',	/* G */
-	'J',	/* H */
-	'G',	/* I */
-	'C',	/* J */
-	'V',	/* K */
-	'P',	/* L */
-	'M',	/* M */
-	'L',	/* N */
-	'S',	/* O */
-	'R',	/* P */
-	'X',	/* Q */
-	'O',	/* R */
-	':',	/* S */
-	'K',	/* T */
-	'F',	/* U */
-	'>',	/* V */
-	'<',	/* W */
-	'B',	/* X */
-	'T',	/* Y */
-	'?',	/* Z */
-	'-',	/* [ */
-	'\\',	/* \ */
-	'=',	/* ] */
-	'^',	/* ^ */
-	'"',	/* _ */
-	'`',	/* ` */
-	'a',	/* a */
-	'n',	/* b */
-	'i',	/* c */
-	'h',	/* d */
-	'd',	/* e */
-	'y',	/* f */
-	'u',	/* g */
-	'j',	/* h */
-	'g',	/* i */
-	'c',	/* j */
-	'v',	/* k */
-	'p',	/* l */
-	'm',	/* m */
-	'l',	/* n */
-	's',	/* o */
-	'r',	/* p */
-	'x',	/* q */
-	'o',	/* r */
-	';',	/* s */
-	'k',	/* t */
-	'f',	/* u */
-	'.',	/* v */
-	',',	/* w */
-	'b',	/* x */
-	't',	/* y */
-	'/',	/* z */
-	'_',	/* { */
-	'|',	/* | */
-	'+',	/* } */
-	'~'	/* ~ */
-    };
-
-    if (qwerty >= '!' && qwerty <= '~')
-	return table[qwerty - '!'];
-
-    return qwerty;
-}
-
 /**
  * @ingroup hangulic
- * @brief @ref HangulInputContext가 조합중인 글자를 가지고 있는지 확인하는 함수
- * @param hic @ref HangulInputContext를 가리키는 포인터
+ * @brief @ref HangulInputContext 가 조합중인 글자를 가지고 있는지 확인하는 함수
+ * @param hic @ref HangulInputContext 를 가리키는 포인터
  *
- * @ref HangulInputContext가 조합중인 글자가 있으면 true를 리턴한다.
+ * @ref HangulInputContext 가 조합중인 글자가 있으면 true를 리턴한다.
  *
- * @remarks 이 함수는 @ref HangulInputContext의 상태를 변화 시키지 않는다.
+ * @remarks 이 함수는 @ref HangulInputContext 의 상태를 변화 시키지 않는다.
  */
 bool
 hangul_ic_is_empty(HangulInputContext *hic)
@@ -1465,12 +1471,12 @@ hangul_ic_is_empty(HangulInputContext *hic)
 
 /**
  * @ingroup hangulic
- * @brief @ref HangulInputContext가 조합중인 초성을 가지고 있는지 확인하는 함수
- * @param hic @ref HangulInputContext를 가리키는 포인터
+ * @brief @ref HangulInputContext 가 조합중인 초성을 가지고 있는지 확인하는 함수
+ * @param hic @ref HangulInputContext 를 가리키는 포인터
  *
- * @ref HangulInputContext가 조합중인 글자가 초성이 있으면 true를 리턴한다.
+ * @ref HangulInputContext 가 조합중인 글자가 초성이 있으면 true를 리턴한다.
  *
- * @remarks 이 함수는 @ref HangulInputContext의 상태를 변화 시키지 않는다.
+ * @remarks 이 함수는 @ref HangulInputContext 의 상태를 변화 시키지 않는다.
  */
 bool
 hangul_ic_has_choseong(HangulInputContext *hic)
@@ -1480,12 +1486,12 @@ hangul_ic_has_choseong(HangulInputContext *hic)
 
 /**
  * @ingroup hangulic
- * @brief @ref HangulInputContext가 조합중인 중성을 가지고 있는지 확인하는 함수
- * @param hic @ref HangulInputContext를 가리키는 포인터
+ * @brief @ref HangulInputContext 가 조합중인 중성을 가지고 있는지 확인하는 함수
+ * @param hic @ref HangulInputContext 를 가리키는 포인터
  *
- * @ref HangulInputContext가 조합중인 글자가 중성이 있으면 true를 리턴한다.
+ * @ref HangulInputContext 가 조합중인 글자가 중성이 있으면 true를 리턴한다.
  *
- * @remarks 이 함수는 @ref HangulInputContext의 상태를 변화 시키지 않는다.
+ * @remarks 이 함수는 @ref HangulInputContext 의 상태를 변화 시키지 않는다.
  */
 bool
 hangul_ic_has_jungseong(HangulInputContext *hic)
@@ -1495,12 +1501,12 @@ hangul_ic_has_jungseong(HangulInputContext *hic)
 
 /**
  * @ingroup hangulic
- * @brief @ref HangulInputContext가 조합중인 종성을 가지고 있는지 확인하는 함수
- * @param hic @ref HangulInputContext를 가리키는 포인터
+ * @brief @ref HangulInputContext 가 조합중인 종성을 가지고 있는지 확인하는 함수
+ * @param hic @ref HangulInputContext 를 가리키는 포인터
  *
- * @ref HangulInputContext가 조합중인 글자가 종성이 있으면 true를 리턴한다.
+ * @ref HangulInputContext 가 조합중인 글자가 종성이 있으면 true를 리턴한다.
  *
- * @remarks 이 함수는 @ref HangulInputContext의 상태를 변화 시키지 않는다.
+ * @remarks 이 함수는 @ref HangulInputContext 의 상태를 변화 시키지 않는다.
  */
 bool
 hangul_ic_has_jongseong(HangulInputContext *hic)
@@ -1555,12 +1561,6 @@ void hangul_ic_connect_callback(HangulInputContext* hic, const char* event,
     }
 }
 
-void hangul_ic_set_filter(HangulInputContext *hic,
-			  HangulICFilter func, void *user_data)
-{
-    return;
-}
-
 void
 hangul_ic_set_keyboard(HangulInputContext *hic, const HangulKeyboard* keyboard)
 {
@@ -1570,71 +1570,64 @@ hangul_ic_set_keyboard(HangulInputContext *hic, const HangulKeyboard* keyboard)
     hic->keyboard = keyboard;
 }
 
+static const HangulKeyboard*
+hangul_ic_get_keyboard_by_id(const char* id)
+{
+    unsigned i;
+    unsigned n;
+
+    /* hangul_keyboards 테이블은 id 순으로 정렬되어 있지 않으므로
+     * binary search를 할수 없고 linear search를 한다. */
+    n = hangul_ic_get_n_keyboards();
+    for (i = 0; i < n; ++i) {
+	const HangulKeyboard* keyboard = hangul_keyboards[i];
+	if (strcmp(id, keyboard->id) == 0) {
+	    return keyboard;
+	}
+    }
+
+    return NULL;
+}
+
 /**
  * @ingroup hangulic
- * @brief @ref HangulInputContext의 자판 배열을 바꾸는 함수
+ * @brief @ref HangulInputContext 의 자판 배열을 바꾸는 함수
  * @param hic @ref HangulInputContext 오브젝트
  * @param id 선택하고자 하는 자판, 아래와 같은 값을 선택할 수 있다.
- *	    @li "2"   두벌식 자판
- *	    @li "32"  세벌식 자판으로 두벌식의 배열을 가진 자판.
- *		      두벌식 사용자가 쉽게 세벌식 테스트를 할 수 있다.
- *		      shift를 누르면 자음이 종성으로 동작한다.
- *	    @li "3f"  세벌식 최종
- *	    @li "39"  세벌식 390
- *	    @li "3s"  세벌식 순아래
- *	    @li "3y"  세벌식 옛글
- *	    @li "ro"  로마자 방식 자판
+ *   @li "2"   @ref layout_2 자판
+ *   @li "2y"  @ref layout_2y 자판
+ *   @li "3f"  @ref layout_3f 자판
+ *   @li "39"  @ref layout_390 자판
+ *   @li "3s"  @ref layout_3s 자판
+ *   @li "3y"  @ref layout_3y 자판
+ *   @li "32"  @ref layout_32 자판
+ *   @li "ro"  @ref layout_ro 자판
+ *
+ *   libhangul이 지원하는 자판에 대한 정보는 @ref hangulkeyboards 페이지를
+ *   참조하라.
  * @return 없음
  * 
- * 이 함수는 @ref HangulInputContext의 자판을 @a id로 지정된 것으로 변경한다.
+ * 이 함수는 @ref HangulInputContext 의 자판을 @a id로 지정된 것으로 변경한다.
  * 
- * @remarks 이 함수는 @ref HangulInputContext의 내부 조합 상태에는 영향을
+ * @remarks 이 함수는 @ref HangulInputContext 의 내부 조합 상태에는 영향을
  * 미치지 않는다.  따라서 입력 중간에 자판을 변경하더라도 조합 상태는 유지된다.
  */
 void
 hangul_ic_select_keyboard(HangulInputContext *hic, const char* id)
 {
+    const HangulKeyboard* keyboard;
+
     if (hic == NULL)
 	return;
 
     if (id == NULL)
 	id = "2";
 
-    if (strcmp(id, "32") == 0) {
-	hic->keyboard = &hangul_keyboard_32;
-	hic->combination = &hangul_combination_default;
-	hic->output_mode = HANGUL_OUTPUT_SYLLABLE;
-	hic->use_jamo_mode_only = FALSE;
-    } else if (strcmp(id, "39") == 0) {
-	hic->keyboard = &hangul_keyboard_390;
-	hic->combination = &hangul_combination_default;
-	hic->output_mode = HANGUL_OUTPUT_SYLLABLE;
-	hic->use_jamo_mode_only = FALSE;
-    } else if (strcmp(id, "3f") == 0) {
-	hic->keyboard = &hangul_keyboard_3final;
-	hic->combination = &hangul_combination_default;
-	hic->output_mode = HANGUL_OUTPUT_SYLLABLE;
-	hic->use_jamo_mode_only = FALSE;
-    } else if (strcmp(id, "3s") == 0) {
-	hic->keyboard = &hangul_keyboard_3sun;
-	hic->combination = &hangul_combination_default;
-	hic->output_mode = HANGUL_OUTPUT_SYLLABLE;
-	hic->use_jamo_mode_only = FALSE;
-    } else if (strcmp(id, "3y") == 0) {
-	hic->keyboard = &hangul_keyboard_3yet;
-	hic->combination = &hangul_combination_full;
-	hic->output_mode = HANGUL_OUTPUT_JAMO;
-	hic->use_jamo_mode_only = TRUE;
-    } else if (strcmp(id, "ro") == 0) {
-	hic->keyboard = &hangul_keyboard_romaja;
-	hic->combination = &hangul_combination_romaja;
-	hic->output_mode = HANGUL_OUTPUT_SYLLABLE;
-	hic->use_jamo_mode_only = FALSE;
+    keyboard = hangul_ic_get_keyboard_by_id(id);
+    if (keyboard != NULL) {
+	hic->keyboard = keyboard;
     } else {
 	hic->keyboard = &hangul_keyboard_2;
-	hic->combination = &hangul_combination_default;
-	hic->output_mode = HANGUL_OUTPUT_SYLLABLE;
-	hic->use_jamo_mode_only = FALSE;
     }
 }
 
@@ -1642,10 +1635,6 @@ void
 hangul_ic_set_combination(HangulInputContext *hic,
 			  const HangulCombination* combination)
 {
-    if (hic == NULL || combination == NULL)
-	return;
-
-    hic->combination = combination;
 }
 
 /**
@@ -1653,7 +1642,7 @@ hangul_ic_set_combination(HangulInputContext *hic,
  * @brief @ref HangulInputContext 오브젝트를 생성한다.
  * @param keyboard 사용하고자 하는 키보드, 사용 가능한 값에 대해서는
  *	hangul_ic_select_keyboard() 함수 설명을 참조한다.
- * @return 새로 생성된 @ref HangulInputContext에 대한 포인터
+ * @return 새로 생성된 @ref HangulInputContext 에 대한 포인터
  * 
  * 이 함수는 한글 조합 기능을 제공하는 @ref HangulInputContext 오브젝트를 
  * 생성한다. 생성할때 지정한 자판은 나중에 hangul_ic_select_keyboard() 함수로
@@ -1691,7 +1680,7 @@ hangul_ic_new(const char* keyboard)
 
 /**
  * @ingroup hangulic
- * @brief @ref HangulInputContext를 삭제하는 함수
+ * @brief @ref HangulInputContext 를 삭제하는 함수
  * @param hic @ref HangulInputContext 오브젝트
  * 
  * @a hic가 가리키는 @ref HangulInputContext 오브젝트의 메모리를 해제한다.
@@ -1707,4 +1696,66 @@ hangul_ic_delete(HangulInputContext *hic)
 	return;
 
     free(hic);
+}
+
+unsigned int
+hangul_ic_get_n_keyboards()
+{
+    return N_ELEMENTS(hangul_keyboards);
+}
+
+const char*
+hangul_ic_get_keyboard_id(unsigned index_)
+{
+    if (index_ < N_ELEMENTS(hangul_keyboards)) {
+	return hangul_keyboards[index_]->id;
+    }
+
+    return NULL;
+}
+
+const char*
+hangul_ic_get_keyboard_name(unsigned index_)
+{
+#ifdef ENABLE_NLS
+    static bool isGettextInitialized = false;
+    if (!isGettextInitialized) {
+	isGettextInitialized = true;
+	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
+	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
+    }
+#endif
+
+    if (index_ < N_ELEMENTS(hangul_keyboards)) {
+	return _(hangul_keyboards[index_]->name);
+    }
+
+    return NULL;
+}
+
+/**
+ * @ingroup hangulic
+ * @brief 주어진 hic가 transliteration method인지 판별
+ * @param hic 상태를 알고자 하는 HangulInputContext 포인터
+ * @return hic가 transliteration method인 경우 true를 리턴, 아니면 false
+ *
+ * 이 함수는 @a hic 가 transliteration method인지 판별하는 함수다.
+ * 이 함수가 false를 리턴할 경우에는 process 함수에 keycode를 넘기기 전에
+ * 키보드 자판 배열에 독립적인 값으로 변환한 후 넘겨야 한다.
+ * 그렇지 않으면 유럽어 자판과 한국어 자판을 같이 쓸때 한글 입력이 제대로
+ * 되지 않는다.
+ */
+bool
+hangul_ic_is_transliteration(HangulInputContext *hic)
+{
+    int type;
+
+    if (hic == NULL)
+	return false;
+
+    type = hangul_keyboard_get_type(hic->keyboard);
+    if (type == HANGUL_KEYBOARD_TYPE_ROMAJA)
+	return true;
+
+    return false;
 }

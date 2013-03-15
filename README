@@ -8,16 +8,10 @@ How to build
  # make
 
 Download:
- * http://kldp.net/frs/?group_id=362
+ * http://code.google.com/p/libhangul/downloads/list
 
 Bug report:
- * bug tracker: http://kldp.net/tracker/?group_id=362
-
-Mailing list
- * mailing list: http://lists.kldp.net/mailman/listinfo/hangul-hackers
- * mailing list archive: http://lists.kldp.net/pipermail/hangul-hackers/
+ * http://code.google.com/p/libhangul/issues/list
 
 Web sites
- * Home page: http://hangul.kldp.net/
- * Project page: http://kldp.net/projects/hangul/
- * Wiki page: http://wiki.kldp.org/wiki.php/libhangul
+ * Project page: http://code.google.com/p/libhangul/
