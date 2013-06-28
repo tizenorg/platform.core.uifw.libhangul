@@ -6,6 +6,7 @@ Group:          System/I18n/Korean
 AutoReqProv:    on
 Url:            http://code.google.com/p/libhangul
 Source0:        %{name}-%{version}.tar.gz
+Source1001: 	libhangul.manifest
 Summary:        Hangul input library used by scim-hangul and ibus-hangul
 BuildRequires:  gettext-tools
 
@@ -34,6 +35,7 @@ to develop applications that require these.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 %build
 %autogen
@@ -54,6 +56,7 @@ rm -rf %{buildroot}
 /sbin/ldconfig
 
 %files
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %doc AUTHORS COPYING NEWS README ChangeLog
 %{_libdir}/lib*.so.*
@@ -64,6 +67,7 @@ rm -rf %{buildroot}
 %{_datadir}/locale/ko/LC_MESSAGES/libhangul.mo
 
 %files devel
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %dir /usr/include/hangul-1.0/
 /usr/include/hangul-1.0/*
