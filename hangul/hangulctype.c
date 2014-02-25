@@ -518,6 +518,10 @@ hangul_jamo_to_cjamo(ucschar c)
 	0x0000,     /* 0xd7c4 */
 	0x0000,     /* 0xd7c5 */
 	0x0000,     /* 0xd7c6 */
+	0x0000,     /* 0xd7c7 */
+	0x0000,     /* 0xd7c8 */
+	0x0000,     /* 0xd7c9 */
+	0x0000,     /* 0xd7ca */
 	0x0000,     /* 0xd7cb */
 	0x0000,     /* 0xd7cc */
 	0x3138,     /* 0xd7cd */
@@ -1344,7 +1348,7 @@ hangul_syllable_to_jaso(ucschar syllable,
 			ucschar* jungseong,
 			ucschar* jongseong)
 {
-    return hangul_syllable_to_jamo(syllable, choseong, jungseong, jongseong);
+    hangul_syllable_to_jamo(syllable, choseong, jungseong, jongseong);
 }
 
 static inline bool 
