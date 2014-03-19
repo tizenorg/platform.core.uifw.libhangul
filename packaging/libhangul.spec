@@ -38,6 +38,7 @@ to develop applications that require these.
 cp %{SOURCE1001} .
 
 %build
+[ ! -x autogen.sh ] || rm -f configure
 %autogen
 %configure --disable-static --with-pic
 %{__make} %{?jobs:-j%jobs}
