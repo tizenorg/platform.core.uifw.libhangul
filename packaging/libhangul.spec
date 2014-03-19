@@ -1,12 +1,12 @@
 Name:           libhangul
 Version:        0.1.0
-Release:        1
-License:        LGPLv2.1
+Release:        0
+License:        LGPL-2.1
 Group:          System/I18n/Korean
 AutoReqProv:    on
 Url:            http://code.google.com/p/libhangul
 Source0:        %{name}-%{version}.tar.gz
-Source1001: 	libhangul.manifest
+Source1001:     libhangul.manifest
 Summary:        Hangul input library used by scim-hangul and ibus-hangul
 BuildRequires:  gettext-tools
 
@@ -59,7 +59,8 @@ rm -rf %{buildroot}
 %files
 %manifest %{name}.manifest
 %defattr(-, root, root)
-%doc AUTHORS COPYING NEWS README ChangeLog
+%license COPYING
+%doc AUTHORS NEWS README ChangeLog
 %{_libdir}/lib*.so.*
 %dir %{_datadir}/libhangul/
 %dir %{_datadir}/libhangul/hanja/
@@ -70,7 +71,6 @@ rm -rf %{buildroot}
 %files devel
 %manifest %{name}.manifest
 %defattr(-, root, root)
-%dir /usr/include/hangul-1.0/
-/usr/include/hangul-1.0/*
+%{_includedir}/hangul-1.0/*
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/libhangul.pc
