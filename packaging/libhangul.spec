@@ -38,7 +38,7 @@ to develop applications that require these.
 cp %{SOURCE1001} .
 
 %build
-[ ! -x autogen.sh ] || rm -f configure
+[ ! -x autogen.sh ] || { rm -f configure ; %autogen ; }
 %reconfigure --disable-static --with-pic
 %__make %{?_smp_mflags}
 
