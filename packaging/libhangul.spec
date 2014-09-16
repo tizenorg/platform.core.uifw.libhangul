@@ -12,7 +12,7 @@ BuildRequires:  gettext-tools
 
 
 %description
-Hangul input library used by scim-hangul and ibus-hangul
+"Hangul input library used by scim-hangul and ibus-hangul
 
 
 Authors:
@@ -21,7 +21,7 @@ Authors:
     Joon-cheol Park <jooncheol@gmail.com>
 
 Hangul input library used by scim-hangul and ibus-hangul
-
+"
 
 %package devel
 Summary:        Include Files and Libraries mandatory for Development
@@ -38,13 +38,15 @@ to develop applications that require these.
 cp %{SOURCE1001} .
 
 %build
-[ ! -x autogen.sh ] || { rm -f configure ; %autogen ; }
+[ ! -x autogen.sh ] ||  rm -f configure 
+touch ChangeLog
 %reconfigure --disable-static --with-pic
 %__make %{?_smp_mflags}
 
 %install
 make DESTDIR=${RPM_BUILD_ROOT} install
 rm -f %{buildroot}%{_libdir}/*.la
+
 
 %clean
 rm -rf %{buildroot}
@@ -59,7 +61,7 @@ rm -rf %{buildroot}
 %manifest %{name}.manifest
 %defattr(-, root, root)
 %license COPYING
-%doc AUTHORS NEWS README ChangeLog
+%doc AUTHORS NEWS README
 %{_libdir}/lib*.so.*
 %dir %{_datadir}/libhangul/hanja/
 %{_datadir}/libhangul/hanja/hanja.txt
