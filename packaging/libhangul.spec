@@ -9,10 +9,11 @@ Source0:        %{name}-%{version}.tar.gz
 Source1001:     libhangul.manifest
 Summary:        Hangul input library used by scim-hangul and ibus-hangul
 BuildRequires:  gettext-tools
+BuildRequires:  pkgconfig
 
 
 %description
-Hangul input library used by scim-hangul and ibus-hangul
+"Hangul input library used by scim-hangul and ibus-hangul
 
 
 Authors:
@@ -21,7 +22,7 @@ Authors:
     Joon-cheol Park <jooncheol@gmail.com>
 
 Hangul input library used by scim-hangul and ibus-hangul
-
+"
 
 %package devel
 Summary:        Include Files and Libraries mandatory for Development
@@ -32,19 +33,20 @@ Requires:       %{name} = %{version}-%{release}
 This package contains all necessary include files and libraries needed
 to develop applications that require these.
 
-
 %prep
 %setup -q
 cp %{SOURCE1001} .
 
 %build
-[ ! -x autogen.sh ] || { rm -f configure ; %autogen ; }
+[ ! -x autogen.sh ] ||  rm -f configure
+touch ChangeLog
 %reconfigure --disable-static --with-pic
 %__make %{?_smp_mflags}
 
 %install
 make DESTDIR=${RPM_BUILD_ROOT} install
 rm -f %{buildroot}%{_libdir}/*.la
+%find_lang %{name}
 
 %clean
 rm -rf %{buildroot}
@@ -55,16 +57,15 @@ rm -rf %{buildroot}
 %postun
 /sbin/ldconfig
 
-%files
+%files -f %{name}.lang
 %manifest %{name}.manifest
 %defattr(-, root, root)
 %license COPYING
-%doc AUTHORS NEWS README ChangeLog
+%doc AUTHORS NEWS README
 %{_libdir}/lib*.so.*
 %dir %{_datadir}/libhangul/hanja/
 %{_datadir}/libhangul/hanja/hanja.txt
 %{_bindir}/hangul
-%{_datadir}/locale/ko/LC_MESSAGES/libhangul.mo
 
 %files devel
 %manifest %{name}.manifest
