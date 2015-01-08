@@ -344,6 +344,9 @@ hanja_list_new(const char *key)
 	list->alloc = 1;
 	list->items = malloc(list->alloc * sizeof(list->items[0]));
 	if (list->items == NULL) {
+	    if (list->key)
+	        free(list->key);
+
 	    free(list);
 	    list = NULL;
 	}
