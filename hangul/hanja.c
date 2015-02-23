@@ -338,18 +338,22 @@ hanja_list_new(const char *key)
     HanjaList *list;
 
     list = malloc(sizeof(*list));
-    if (list != NULL) {
-	list->key = strdup(key);
-	list->len = 0;
-	list->alloc = 1;
-	list->items = malloc(list->alloc * sizeof(list->items[0]));
-	if (list->items == NULL) {
-	    if (list->key)
-	        free(list->key);
+    if (list == NULL)
+	return NULL;
 
-	    free(list);
-	    list = NULL;
-	}
+    list->key = strdup(key);
+    if (list->key == NULL) {
+	free(list);
+	return NULL;
+    }
+
+    list->len = 0;
+    list->alloc = 1;
+    list->items = malloc(list->alloc * sizeof(list->items[0]));
+    if (list->items == NULL) {
+	free(list->key);
+	free(list);
+	return NULL;
     }
 
     return list;
