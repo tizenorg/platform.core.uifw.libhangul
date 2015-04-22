@@ -1,7 +1,7 @@
 Name:           libhangul
 Version:        0.1.0
 Release:        0
-License:        LGPL-2.1
+License:        LGPL-2.1+
 Group:          System/Utilities
 AutoReqProv:    on
 Url:            http://code.google.com/p/libhangul
